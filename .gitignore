@@ -9,7 +9,11 @@
 /node_modules
 
 # IDEs and editors
-/.idea
+.idea/*.iml
+.idea/modules.xml
+.idea/workspace.xml
+.idea/encodings.xml
+
 .project
 .classpath
 .c9/
