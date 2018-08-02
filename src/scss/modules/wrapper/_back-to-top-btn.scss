@@ -1,0 +1,30 @@
+#back-to-top-btn {
+  position: fixed;
+  display: inline-block;
+  right: 13px;
+  bottom: 13px;
+  width: auto;
+  @include opacity(0);
+  //will-change: transform;
+  @include transition(fit-with-browser-prefixes((transform 0.34s, opacity 0.34s,), (transform, opacity)));
+  @include transform(translateX(101%));
+  z-index: 9;
+
+  &.active {
+    @include transform(translateX(0));
+    @include opacity(1);
+  }
+
+  &.pos-rel {
+    position: absolute;
+    bottom: auto;
+    padding-bottom: 3px;
+    @include transition(none);
+    @include transform(translateY(-100%));
+  }
+
+  .btn {
+    display: block;
+    font-size: 21px;
+  }
+}

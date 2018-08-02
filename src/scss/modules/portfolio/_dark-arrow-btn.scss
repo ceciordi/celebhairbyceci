@@ -1,0 +1,15 @@
+.dark-arrow-btn {
+  polyline.outline {
+    stroke-width: 13px;
+    stroke: $highlight-1-2;
+  }
+  polyline.foreground {
+    stroke: $highlight-1-1; //#1240AB;
+  }
+  &:hover polyline.foreground {
+    stroke: $color-5-1; //#6C8CD5;
+  }
+  &:active polyline.foreground {
+    stroke: $highlight-4-1; //#6C8CD5;
+  }
+}

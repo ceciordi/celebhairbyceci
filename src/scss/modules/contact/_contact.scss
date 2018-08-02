@@ -1,0 +1,45 @@
+#contact {
+
+  #contact-form .form-field .messages {
+    font-size: 13px;
+    margin-top: 13px;
+  }
+
+  #contact-form .form-field .error-messages {
+    color: red;
+  }
+
+  .block-form-fields .form-field {
+    display: block;
+  }
+
+  .recaptcha-field {
+    min-height: 77.99px;
+  }
+
+  p {
+    text-indent: 0;
+  }
+}
+
+@media (min-device-width: 320px) and (max-device-width: 767px)
+  and (orientation: portrait) {
+  #contact {
+    input[type="tel"],
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    select, textarea {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .text-input.inline-inputs input + input {
+      margin-top: 21px;
+    }
+
+  }
+
+}
+

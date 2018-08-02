@@ -1,0 +1,119 @@
+main {
+
+  .h2 {
+    color: $highlight-1-1;
+    font: normal 21px "Oswald", "Reckless", $global-fonts;
+    line-height: 21px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .h3 {
+    color: $highlight-1-1;
+    font: normal 1rem "Oswald", "Lato", "Lights of Stardust", $global-fonts;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  section {
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    p a,
+    figure a {
+      @include with-browser-prefixes(transition,
+              fit-with-browser-prefixes((
+                      opacity $ani-speed-1,
+                      color $ani-speed-1
+              ), (opacity)
+              )
+      );
+      color: $highlight-1-1;
+      &:hover {
+        color: $highlight-4-1;
+      }
+      &.active,
+      &:active {
+        color: $highlight-4-2;
+      }
+    }
+
+    header:first-child {
+      padding: 34px 13px 21px;
+    }
+
+    figcaption {
+      font-size: 0.89rem;
+    }
+
+    .blockquotes,
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .blockquote {
+      margin-bottom: 55px;
+      font-style: italic;
+
+      figcaption {
+        text-align: right;
+        padding-right: 55px;
+      }
+      > figcaption:last-child {
+        text-align: right;
+      }
+    }
+
+    figure img,
+    figure .vignette-image {
+      margin-bottom: 21px;
+    }
+
+    figure:last-child {
+      margin-bottom: 0;
+    }
+
+    blockquote {
+      position: relative;
+      font-family: "Oswald", $global-fonts;
+      padding: 0 34px;
+      color: $highlight-gray;
+    }
+    blockquote:after,
+    blockquote:before {
+      position: absolute;
+      color: $highlight-gray;
+      font-size: 55px;
+      @include opacity(0.34);
+    }
+    blockquote:after {
+      bottom: 13px;
+      padding: 0;
+      content: "\201D";
+      @include transform(translate(21%, 100%));
+    }
+    blockquote:before {
+      padding: 0 8px;
+      top: -34px;
+      content: "\201C";
+      @include transform(translate(-121%, 100%));
+    }
+  }
+
+  section article {
+    header:first-child {
+      padding: 21px 0;
+    }
+  }
+
+  @media only screen and(min-device-width: 320px) and (max-device-width: 767px) {
+    section {
+      .blockquotes blockquote {
+        padding: 0 21px;
+      }
+    }
+  }
+  
+}

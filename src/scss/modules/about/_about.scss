@@ -1,0 +1,69 @@
+#about {
+
+  .the-team figure:first-child {
+    margin-bottom: 13px;
+  }
+
+  .the-team {
+    .figure-image .vignette {
+      width: 100%;
+      height: 34vh;
+      > img {
+        max-width: 108%;
+      }
+    }
+  }
+
+  .testimonials {
+    figure > div {
+      display: flex;
+      align-items: center;
+    }
+    blockquote {
+      flex-basis: 100%;
+    }
+  }
+  .vignette + a {
+    margin-top: 21px;
+
+  }
+
+  .vignette-round {
+    clip-path: circle(5rem);
+    @include with-browser-prefixes(border-radius, 100%);
+    max-width: 89px;
+    max-height: 89px;
+    width: 13rem;
+    height: 13rem;
+  }
+
+  .vignette-round img {
+    width: 144%;
+  }
+}
+//
+//(min-device-width: 320px)
+//  and (max-device-width: 767px) {
+//  #about .testimonials .vignette {
+//    width: 100%;
+//    height: 55vh;
+//    > img {
+//      max-width: 121%;
+//    }
+//  }
+//}
+
+@media (min-device-width: 320px)
+  and (max-device-width: 767px) and (orientation: portrait) {
+  #about .testimonials .vignette {
+    display: none;
+  }
+}
+
+@media (min-device-width: 320px)
+and (max-device-width: 767px) and (orientation: landscape) {
+  #about .figure-image .vignette {
+    min-height: 89vh;
+  }
+}
+

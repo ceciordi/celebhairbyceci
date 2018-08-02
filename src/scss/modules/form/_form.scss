@@ -1,0 +1,134 @@
+form {
+  legend {
+    margin-bottom: 34px;
+
+    .red {
+      color: #ff0000;
+    }
+  }
+
+  fieldset label {
+    //font-weight: bold;
+  }
+
+  .form-field {
+    display: inline-block;
+    margin: 0 0 34px;
+
+    label {
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    input,
+    select,
+    textarea {
+      padding: 10.5px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+    }
+  }
+
+  legend span.required-symbol,
+  .form-field.required label:before {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #ff0000;
+  }
+
+  .form-field.required label:before {
+    content: "*";
+    margin-right: 5px;
+  }
+
+  .form-field.text-area {
+    label + textarea {
+      display: block;
+      margin-top: 8px;
+    }
+  }
+
+  .form-field.text-input {
+    label + input {
+      display: block;
+      margin-top: 8px;
+    }
+  }
+
+  .form-field.submit-input {
+    margin-right: 13px;
+    input {
+      border-radius: 21px;
+      padding: 13px 21px;
+      border: none;
+      color: #FFF;
+      font: bold 1.1rem "Lato" $global-fonts;
+      background: $highlight-1-1;
+      text-transform: uppercase;
+
+      &:hover {
+        background: $highlight-4-1;
+        color: #fff;
+      }
+
+      &:active {
+        background: $color-5-6;
+        color: #fff;
+      }
+    }
+  }
+
+  .form-field.select-field {
+    label + select {
+      display: block;
+      margin-top: 8px;
+    }
+  }
+
+  .form-field.radio-inputs {
+    label,
+    label + input[type="radio"] {
+      display: inline-block;
+    }
+    label:first-child {
+      margin-right: 8px;
+    }
+    input + label {
+      padding-left: 0;
+      margin-right: 8px;
+    }
+  }
+
+  .form-field.inline-inputs {
+    label + input,
+    input {
+      display: inline-block;
+      margin-right: 13px;
+    }
+  }
+
+  .form-field.phone-input {
+    label {
+      display: block;
+    }
+    > div {
+      display: flex;
+      justify-content: space-around;
+    }
+    input {
+      flex-basis: 32%;
+      text-align: center;
+    }
+  }
+
+  .block-form-fields {
+    > .form-field {
+      display: block;
+    }
+  }
+
+}
+
+form fieldset + fieldset {
+  margin-top: 13px;
+}

@@ -1,0 +1,99 @@
+.carousel-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 13px;
+
+  .image-with-preloader {
+    position: relative;
+    display: inline-block;
+    //border: 1px solid #bbb;
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: 1%;
+
+    @include with-browser-prefixes(transform-origin, (center center));
+    @include transition(
+      fit-with-browser-prefixes((
+          transform $ani-speed-2 ease-in-out,
+          opacity $ani-speed-2 ease-in-out,
+          filter $ani-speed-2 ease-in-out,
+      ), (opacity transform filter))
+    );
+    //@include opacity(0.89);
+    z-index: 1;
+
+    &:hover,
+    &:active {
+      cursor: pointer;
+      @include opacity(1);
+      z-index: 2;
+    }
+
+    &.active,
+    &:hover {
+      @include transform(scale(1.01));
+      filter: brightness(1.1);
+    }
+
+    &:active {
+      @include transform(scale(1));
+      filter: brightness(1.1) saturate(104%);
+    }
+  }
+
+  .image-with-preloader img {
+    width: 108%;
+    min-height: 21vh;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 568px) {
+  .carousel-thumbs {
+    justify-content: space-between;
+
+    .image-with-preloader img {
+      min-height: 18vh;
+    }
+    .image-with-preloader {
+      flex-basis: 48%;
+      min-width: 48%;
+      min-height: 18vh;
+      max-height: 21vh;
+    }
+
+  }
+}
+
+@media (min-width: 568px) and (max-width: 767px) {
+  .carousel-thumbs {
+    justify-content: space-between;
+
+    .image-with-preloader {
+      flex-basis: 32.33%;
+      min-width: 32.33%;
+      min-height: 21vh;
+      max-height: 21vh;
+    }
+  }
+}
+
+@media (min-width: 568px) and (max-width: 767px) and (orientation: landscape) {
+  .carousel-thumbs {
+    .image-with-preloader {
+      min-height: 32.33vh;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 3840px) {
+  .carousel-thumbs {
+    .image-with-preloader {
+      flex-basis: 24%;
+      min-width: 24%;
+      min-height: 21vh;
+      max-height: 21vh;
+    }
+  }
+}
+

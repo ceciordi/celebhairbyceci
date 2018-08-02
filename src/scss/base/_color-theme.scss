@@ -1,0 +1,70 @@
+/**
+ * recommendations: Syntax - sass
+ */
+// Default reds
+$color-1-1: #FF0000;
+$color-1-2: #BF3030;
+$color-1-3: #A60000;
+$color-1-4: #FF4040;
+$color-1-5: #FF7373;
+
+// Default yellows
+$color-2-1: #FFAA00;
+$color-2-2: #BF8F30;
+$color-2-3: #A66F00;
+$color-2-4: #FFBF40;
+$color-2-5: #FFD073;
+
+// Default blues
+$color-3-1: #1240AB;
+$color-3-2: #2A4480;
+$color-3-3: #06266F;
+$color-3-4: #4671D5;
+$color-3-5: #6C8CD5;
+
+// Default greens
+$color-4-1: #00CC00;
+$color-4-2: #269926;
+$color-4-3: #008500;
+$color-4-4: #39E639;
+$color-4-5: #67E667;
+
+// Monochromatic shades and highlights
+$color-5-9: #400B27;
+$color-5-8: #5E103A;
+$color-5-7: #5E2C47;
+$color-5-6: #9E1A61;
+$color-5-5: #AB1C69;
+$color-5-4: #C42178;
+$color-5-3: #EB2790;
+$color-5-2: #DE2588;
+$color-5-1: #E36AAB;
+
+// Analogous highlights
+$color-6-1: #EB381B;
+$color-6-2: #F51D24;
+$color-6-3: #DE2588;
+$color-6-4: #F11DF5;
+$color-6-5: #AE1BEB;
+
+// Shades
+$black: #000;
+$white: #FFF;
+
+// Highlights
+$highlight-1-1: #e5087d; //#de2588;
+$highlight-1-2: #f1a1ca;
+$highlight-2-1: #f46a48;
+$highlight-2-3: #f42f2f;
+$highlight-3-1: $highlight-2-3;
+$highlight-4-1: #8008a1;
+$highlight-4-2: #57056E;
+
+$highlight-gray: #888; //#585b59;
+
+// "Capture" color scheme (found at https://color.adobe.com/explore/?filter=most-popular&time=month)
+$color-7-1: #323642;
+$color-7-2: #091324;
+$color-7-3: #f4f5f2;
+$color-7-4: #d7d8db;
+$color-7-5: #8c8b8f;
