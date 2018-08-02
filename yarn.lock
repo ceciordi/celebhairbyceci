@@ -1811,7 +1811,7 @@ domutils@1.5.1:
     dom-serializer "0"
     domelementtype "1"
 
-duplexify@^3.4.2, duplexify@^3.6.0:
+duplexify@^3.4.2, duplexify@^3.4.5, duplexify@^3.6.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/duplexify/-/duplexify-3.6.0.tgz#592903f5d80b38d037220541264d69a198fb3410"
   dependencies:
@@ -2896,9 +2896,19 @@ ignore@^3.3.5:
   version "3.3.10"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-3.3.10.tgz#0a97fb876986e8081c631160f8f9f389157f0043"
 
+image-size@^0.6.3:
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/image-size/-/image-size-0.6.3.tgz#e7e5c65bb534bd7cdcedd6cb5166272a85f75fb2"
+
 image-size@~0.5.0:
   version "0.5.5"
   resolved "https://registry.yarnpkg.com/image-size/-/image-size-0.5.5.tgz#09dfd4ab9d20e29eb1c3e80b8990378df9e3cb9c"
+
+imagemagick-stream@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/imagemagick-stream/-/imagemagick-stream-4.1.1.tgz#e34bbc5e51eeafa10a99f181e10f1acf66e64b46"
+  dependencies:
+    duplexify "^3.4.5"
 
 immediate@~3.0.5:
   version "3.0.6"

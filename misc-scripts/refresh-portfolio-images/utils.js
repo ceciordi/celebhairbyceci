@@ -1,13 +1,13 @@
 'use strict';
 
-let sjl = require('sjljs');
+let {isNumber} = require('fjl');
 
 function isUsablePosNum (num) {
-    return sjl.isNumber(num) && num > -1;
+    return isNumber(num) && num > -1;
 }
 
 function closestPairAscFromFib (num) {
-    var out,
+    let out,
         a = 0,
         b = 1,
         c = a + b;
@@ -26,7 +26,7 @@ function closestPairAscFromFib (num) {
 function fib (start, end) {
     start = isUsablePosNum(start) ? start : 0;
     end = isUsablePosNum(end) ? end : 1000;
-    var out = [],
+    let out = [],
         fibPair = closestPairAscFromFib(start),
         a = fibPair[0],
         b = fibPair[1];
@@ -48,8 +48,8 @@ function ratio (a, b, c) {
 }
 
 module.exports = {
-    isUsablePosNum: isUsablePosNum,
-    closestPairAscFromFib: closestPairAscFromFib,
-    fib: fib,
-    ratio: ratio
+    isUsablePosNum,
+    closestPairAscFromFib,
+    fib,
+    ratio
 };
