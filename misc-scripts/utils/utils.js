@@ -6,9 +6,10 @@ const
 
     ioMkdirp = promisify(mkdirp),
     ioReadDirectory = promisify(fs.readdir),
+    ioReadFile = promisify(fs.readFile),
     ioDoesFilePathExists = promisify(fs.access),
     ioStat = promisify(fs.stat),
-    // ioWriteFile = promisify(fs.writeFile),
+    ioWriteFile = promisify(fs.writeFile),
 
     ensureOutputPath = outputPath =>
         ioDoesFilePathExists(outputPath)
@@ -25,5 +26,7 @@ module.exports = {
     ioMkdirp,
     ioReadDirectory,
     ioDoesFilePathExists,
+    ioReadFile,
+    ioWriteFile,
     ioStat
 };
