@@ -1,5 +1,6 @@
 /**
  * Created by elydelacruz on 7/19/16.
+ * Refactored: 08/02/2018
  * @description Generates a JSON file which resembles all 'portfolio' directories and their files as JSON.
  * @todo Make script reference asset paths relatively.
  */
@@ -9,9 +10,9 @@ const
     mime = require('mime'),
     markdown = require('markdown-it')(),
     {assign, error, log, compose, head, tail, split} = require('fjl'),
-    {ensureOutputPath, ioReadDirectory, ioStat, ioReadFile, ioWriteFile, ioDoesFilePathExists} = require('../utils/utils'),
+    {ensureOutputPath, ioReadDirectory, ioStat, ioReadFile, ioWriteFile, ioDoesFilePathExists, ioImageSize} = require('../utils/utils'),
     {refreshPortfolioImagesConfig, refreshPortfolioJsonC} = require('../../package'),
-    entryDefaults = require('./entry-defaults'),
+    // entryDefaults = require('./entry-defaults'),
     defaultOptions = {
         markdownInputPath:  'src/assets/portfolio-descriptions-markdown',
         inputPath:          refreshPortfolioImagesConfig.outputPathPrefix,
@@ -91,22 +92,25 @@ const
             ));
     },
 
-    parseFile = ({file}, entry) =>
+    parseFile = ({file, filePath}, entry) =>
         Promise.resolve(
             /\d+\.(jpg|png|jpeg)/.test(file) ? // Make this regex and option of `incomingConfig`
-                assign({
+                ioImageSize(filePath).then(({width, height}) => assign({
                     fileType: 'file',
                     ext: path.extname(file),
-                    mimeType: mime.getType(file)
-                }, entry) : entry
+                    mimeType: mime.getType(file),
+                    height,
+                    width
+                }, entry)) : entry
         ),
 
     getDirDescr = (folderName, markdownInputPath) => {
         const mdLocation = path.join(markdownInputPath, folderName + '.md');
-        return ioDoesFilePathExists(mdLocation)
+        log (`\nChecking for markdown description file at path: ${mdLocation}`);
+        return ioDoesFilePathExists(path.join(__dirname, '../../', mdLocation))
             .then(() => ioReadFile(mdLocation))
             .then(md => markdown.render(md.toString('utf8')))
-            .catch(() => entryDefaults.description);
+            .catch(() => undefined);
     }
 ;
 

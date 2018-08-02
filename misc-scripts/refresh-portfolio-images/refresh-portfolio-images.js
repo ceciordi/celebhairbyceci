@@ -10,15 +10,10 @@
 const
     fs = require('fs'),
     path = require('path'),
-    {promisify} = require('util'),
     {log, error, assign, concat} = require('fjl'),
-    {ensureOutputPath, ioReadDirectory, ioStat} = require('../utils/utils'),
+    {ensureOutputPath, ioReadDirectory, ioStat, ioImageSize} = require('../utils/utils'),
     imageMagickStream = require('imagemagick-stream'),
-    imageSize = require('image-size'),
     rpiUtils = require('./utils'),
-
-    // IO processes
-    ioImageSize = promisify(imageSize),
 
     // Options
     _subPortfolioSuffix = '', // sub folder where actual images are kept (default blank)

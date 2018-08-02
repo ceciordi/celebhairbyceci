@@ -3,6 +3,7 @@ const
     fs = require('fs'),
     {promisify} = require('util'),
     mkdirp = require('mkdirp'),
+    imageSize = require('image-size'),
 
     ioMkdirp = promisify(mkdirp),
     ioReadDirectory = promisify(fs.readdir),
@@ -10,6 +11,7 @@ const
     ioDoesFilePathExists = promisify(fs.access),
     ioStat = promisify(fs.stat),
     ioWriteFile = promisify(fs.writeFile),
+    ioImageSize = promisify(imageSize),
 
     ensureOutputPath = outputPath =>
         ioDoesFilePathExists(outputPath)
@@ -28,5 +30,6 @@ module.exports = {
     ioDoesFilePathExists,
     ioReadFile,
     ioWriteFile,
-    ioStat
+    ioStat,
+    ioImageSize
 };
