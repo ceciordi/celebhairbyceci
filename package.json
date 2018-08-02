@@ -1,6 +1,6 @@
 {
   "name": "celebhairbycecilia",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,7 +9,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "rpi": "node ./misc-scripts/refresh-portfolio-images/refresh-portfolio-images.js",
-    "rpj": "node  --inspect ./misc-scripts/refresh-portfolio-json/refresh-portfolio-json.js"
+    "rpj": "node ./misc-scripts/refresh-portfolio-json/refresh-portfolio-json.js",
+    "portfolios": "npm run rpi && npm run rpj"
   },
   "private": true,
   "dependencies": {
@@ -24,7 +25,7 @@
     "@angular/router": "^6.1.0",
     "common-classes": "elycruz/common-classes",
     "core-js": "^2.5.4",
-    "fjl": "^0.25.4",
+    "fjl": "^1.1.1-next",
     "rxjs": "^6.0.0",
     "unsemantic": "^1.2.3",
     "zone.js": "~0.8.26"
@@ -56,10 +57,10 @@
     "typescript": "~2.7.2"
   },
   "refreshPortfolioJsonC": {
-      "markdownInputPath":  "src/assets/portfolio-descriptions-markdown",
-      "inputPath":          "src/assets/portfolios-processed",
-      "outputPath":         "src/assets/json",
-      "outputFileName":     "portfolios-data.json"
+    "markdownInputPath": "src/assets/portfolio-descriptions-markdown",
+    "inputPath": "src/assets/portfolios-processed",
+    "outputPath": "src/assets/json",
+    "outputFileName": "portfolios-data.json"
   },
   "refreshPortfolioImagesConfig": {
     "inputPathPrefix": "src/assets/portfolios-pending",
