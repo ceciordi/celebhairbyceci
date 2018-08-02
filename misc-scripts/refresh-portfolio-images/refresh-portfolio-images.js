@@ -1,17 +1,18 @@
 /**
  * Created: 7/19/16.
- * Refactor: 07/23/2018
+ * Refactored: 07/23/2018
  * @description Generates thumbs for images in 'portfolios-pending' folder (see '../../package.json' `refreshPortfolioImagesConfig` key)
  * @todo Add more thorough description of this script, document functions and add comments where useful.
- * @todo Add command line flag for skipping already generated images or flag for forcing the rewrite of such images.
+ * @todo Add command line flag for forcing the rewrite of already generated images.
  * @todo Make script runnable from any directory (currently script doesn't access paths relatively).
  */
 
 const
     fs = require('fs'),
     path = require('path'),
-    {log, error, assign, concat} = require('fjl'),
-    {ensureOutputPath, ioReadDirectory, ioStat, ioImageSize} = require('../utils/utils'),
+    {log, error, assign, concat, peek} = require('fjl'),
+    {ensureOutputPath, ioReadDirectory, ioStat, ioImageSize,
+        ioDoesFilePathExists} = require('../utils/utils'),
     imageMagickStream = require('imagemagick-stream'),
     rpiUtils = require('./utils'),
 
@@ -31,6 +32,11 @@ const
 
     // External options
     {refreshPortfolioImagesConfig} = require('../../package'),
+
+    // Get command line args
+    {argv: { force }} = require('yargs')
+        .default('force', false)
+        .alias('force', 'f'),
 
     // Overall options to use
     incomingOptions = assign(_defaultOptions, refreshPortfolioImagesConfig),
@@ -97,9 +103,16 @@ const
                         log(`\nSkipping: ${fileInputPath}`);
                         return Promise.resolve([fileInputPath, []]);
                     }
+
+                    // Get image dimensions
                     return ioImageSize(fileInputPath)
+
+                    // Then create image configurations; I.e., `[FilePath, [ResizeConfigs]]`
                       .then(({type, width, height}) => [
                         fileInputPath,
+
+                        // Loop through expected image width sizes and create config entries
+                          // for each image size requested
                         targetImageWidths.map(targetWidth => ({
                                 parentDirectory: fileInputPathPrefix,
                                 originalFilePath: fileInputPath,
@@ -111,6 +124,24 @@ const
                                 )
                             }))
                       ])
+                        // Check if image overwrites are required
+                        .then(([_, entries]) => !force ?
+
+                            // If overwrites are to be skipped filter `entries` by `newFilePath`s that do not exist
+                            [_, Promise.all(entries.map(entry =>
+                                    ioDoesFilePathExists(entry.newFilePath)
+                                        .then(() => null)   // File path exists.  Mark it `null`/'should-be-skipped'
+                                        .catch(() => entry) // File path doesn't exist.  Leave it marked for processing.
+                                    ))
+                                .then(es => es.filter(Boolean)) // Filter for entries that should be included
+                            ] :
+
+                            // Else leave all config entries in `entries` list (overwrite/`--force` was requested)
+                            [_, Promise.resolve(entries)]
+                        )
+
+                        // Flip promises inside out;  I.e., `[String, Promise<Array>] -> Promise<[String, Array]>`
+                        .then(([_, p]) => p.then(entries => [_, entries]))
                 });
             })))
             .catch(error)
@@ -118,30 +149,34 @@ const
 
     reduceImageListTuples = imageListTuples =>
         imageListTuples.reduce((prevPromise, [originalFilePath, imageConfigs]) => {
-            const readStream = fs.createReadStream(path.resolve(originalFilePath));
-            return prevPromise.then(() => Promise.all( // Chain all image sets together to
-                                                       //   only allow one `read stream` to be loaded per image set
-                imageConfigs.map(c => new Promise((resolve, reject) => {
-                    const {newWidth, newHeight, newFilePath} = c,
-                        resize = imageMagickStream().resize(newWidth + 'x' + newHeight),
-                        writeStream = fs.createWriteStream(path.resolve(newFilePath));
 
-                    // Resize image
-                    readStream
-                        .pipe(resize)
-                        .pipe(writeStream)
-                        .on('error', reject)
-                        .on('finish', err => {
-                            const out = {};
-                            if (err) {
-                                log(err);
-                                out.failed = true;
-                                out.error = err;
-                            }
-                            resolve({...c, ...out});
-                        });
-                }))
-            ));
+            // Chain all image sets together to only allow
+            //  one `read stream` to be loaded per image set
+            return prevPromise.then(() => {
+                const readStream = fs.createReadStream(path.resolve(originalFilePath));
+                return Promise.all(
+                    imageConfigs.map(c => new Promise((resolve, reject) => {
+                        const {newWidth, newHeight, newFilePath} = c,
+                            resize = imageMagickStream().resize(newWidth + 'x' + newHeight),
+                            writeStream = fs.createWriteStream(path.resolve(newFilePath));
+
+                        // Resize image
+                        readStream
+                            .pipe(resize)
+                            .pipe(writeStream)
+                            .on('error', reject)
+                            .on('finish', err => {
+                                const out = {};
+                                if (err) {
+                                    log(err);
+                                    out.failed = true;
+                                    out.error = err;
+                                }
+                                resolve({...c, ...out});
+                            });
+                    }))
+                );
+            });
         }, Promise.resolve())
 
 ;
