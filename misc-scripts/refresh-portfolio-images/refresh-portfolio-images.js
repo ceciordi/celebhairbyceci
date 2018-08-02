@@ -18,7 +18,7 @@ const
 
     // Options
     _subPortfolioSuffix = '', // sub folder where actual images are kept (default blank)
-    _allowedImagesRegex = /\.(jpg|jpeg|png)$/i,
+    _allowedImagesRegex = /\.(jpg|jpeg|png|tif|tiff)$/i,
     _targetImageWidths = rpiUtils.fib(89, 1000),
 
     _defaultOptions = {
@@ -36,7 +36,7 @@ const
     // Get command line args
     {argv: { force }} = require('yargs')
         .default('force', false)
-        .alias('force', 'f'),
+        .alias('f', 'force'),
 
     // Overall options to use
     incomingOptions = assign(_defaultOptions, refreshPortfolioImagesConfig),

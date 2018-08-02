@@ -21,6 +21,10 @@ const
         forHttpSplitFilePathAt: 'src/'
     },
 
+    {argv: {prettyprint}} = require('yargs')
+        .default('prettyprint', false)
+        .alias('pp', 'prettyprint'),
+
     incomingOptions = {...defaultOptions, ...refreshPortfolioJsonC},
 
     refreshPortfoliosJson = options => {
@@ -34,7 +38,9 @@ const
             .then(parsed => parsed.filter(entry => entry.fileType === 'dir'))
 
             // Parse `parsed` directories structure to JSON string
-            .then(parsed => JSON.stringify(parsed, null, 5))
+            .then(parsed => prettyprint ?
+                JSON.stringify(parsed, null, 5) :
+                JSON.stringify(parsed))
 
             // .then(parsed => peek('\npeek at parsed:', parsed))
 
