@@ -2,23 +2,21 @@
  * Created by elydelacruz on 7/19/16.
  */
 
-'use strict';
-
-let fs = require('fs'),
+const
+    fs = require('fs'),
     path = require('path'),
-    mkdirp = require('mkdirp'),
-    sjl = require('sjljs'),
     stream = require('stream'),
     Readable = stream.Readable,
     mime = require('mime'),
     util = require('util'),
+    {ensureOutputPath} = require('../utils/utils'),
     markdown = require('markdown-it')(),
     entryDefaults = require('./entry-defaults'),
     defaultOptions = {
         markdownInputPath:  './public-dev/data/portfolio-descriptions-md',
-        inputPath:          './public/media/images/portfolio',
-        outputPath:         './public/data',
-        outputFileName:     'portfolio-data.json'
+        inputPath:          './src/assets/portfolios-processed',
+        outputPath:         './src/assets/json',
+        outputFileName:     'portfolios-data.json'
     };
 
 function PortfoliosReadStream (inputPath, markdownInputPath) {
@@ -80,22 +78,10 @@ function main (dir, markdownInputPath) {
     return out;
 }
 
-function ensureOutputPath (outputPath) {
-    return new Promise(function (resolve, reject) {
-        fs.access(outputPath, function (err) {
-            if (!sjl.empty(err)) {
-                mkdirp(outputPath, function (err2) {
-                    !sjl.empty(err2) ? reject(err2) : resolve('Directory chain created for path: ' + outputPath);
-                });
-            }
-            resolve(outputPath + ' already exists not creating the path.');
-        });
-    });
-}
 
 function startProcess (inputPath, markdownInputPath, outputPath, outputFileName) {
     return ensureOutputPath(outputPath)
-        .then(function () {
+        .then(() => {
             let writeStream = fs.createWriteStream(path.join(outputPath, outputFileName)),
                 readStream = new PortfoliosReadStream(inputPath, markdownInputPath);
             return readStream.pipe(writeStream);
@@ -103,7 +89,7 @@ function startProcess (inputPath, markdownInputPath, outputPath, outputFileName)
 }
 
 module.exports = function (options) {
-    let ops = sjl.extend({}, defaultOptions, options);
+    let ops = assign({}, defaultOptions, options);
     return function () {
         return startProcess(
             ops.inputPath,

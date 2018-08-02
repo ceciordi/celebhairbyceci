@@ -1,29 +1,23 @@
 /**
  * Created: 7/19/16.
  * Refactor: 07/23/2018
- * Notes:
- *   - Create thunks
- *   - Split them up into throttled chunks (in order to throttle the promise executions (of image resizes))
+ * @description Generates thumbs for images in 'portfolios-pending' folder (see '../../package.json' `refreshPortfolioImagesConfig` key)
+ * @todo Add more thorough description of this script, document functions and add comments where useful.
+ * @todo Add command line flag for skipping already generated images or flag for forcing the rewrite of such images.
  */
-
-'use strict';
 
 const
     fs = require('fs'),
-    {log, error, peek, assign, concat} = require('fjl'),
-    {promisify, inspect} = require('util'),
     path = require('path'),
-    mkdirp = promisify(require('mkdirp')),
+    {promisify} = require('util'),
+    {log, error, assign, concat} = require('fjl'),
+    {ensureOutputPath, ioReadDirectory, ioStat} = require('../utils/utils'),
     imageMagickStream = require('imagemagick-stream'),
     imageSize = require('image-size'),
     rpiUtils = require('./utils'),
 
     // IO processes
     ioImageSize = promisify(imageSize),
-    ioReadDirectory = promisify(fs.readdir),
-    ioDoesFilePathExists = promisify(fs.access),
-    ioStat = promisify(fs.stat),
-    ioWriteFile = promisify(fs.writeFile),
 
     // Options
     _subPortfolioSuffix = '', // sub folder where actual images are kept (default blank)
@@ -97,15 +91,6 @@ const
             .catch(error);
     },
 
-    ensureOutputPath = outputPath =>
-        ioDoesFilePathExists(outputPath)
-            .then(() => `${outputPath} already exists not creating the path.`)
-            .catch(() =>
-                mkdirp(outputPath)
-                    .then(() => `Directory file path created for path: ${outputPath}`)
-                    .catch(err => `Error creating \`${outputPath}\`;  Error: ${err}`)
-            ),
-
     toImagesAssocList = (fileInputPathPrefix, fileOutputPathPrefix, allowedImagesRegex, targetImageWidths) => {
         log(`\nGenerating images associated list for ${fileInputPathPrefix}...\n`);
         return ioReadDirectory(fileInputPathPrefix).then(files => Promise.all(
@@ -157,7 +142,7 @@ const
                                 out.failed = true;
                                 out.error = err;
                             }
-                            resolve({...out, ...c});
+                            resolve({...c, ...out});
                         });
                 }))
             ));
