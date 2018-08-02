@@ -47,5 +47,9 @@
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1",
     "typescript": "~2.7.2"
+  },
+  "refreshPortfolioImagesConfig": {
+    "inputPathPrefix": "src/assets/portfolios-pending",
+    "outputPathPrefix": "src/assets/portfolios-processed"
   }
 }
