@@ -3,10 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {PortfolioComponent} from './portfolio/portfolio.component';
+import {PortfolioSlideComponent} from './portfolio-slide/portfolio-slide.component';
+import {PortfolioSlideShowComponent} from './portfolio-slide-show/portfolio-slide-show.component';
+import {PortfolioThumbComponent} from './portfolio-thumb/portfolio-thumb.component';
+import {PortfolioThumbsComponent} from './portfolio-thumbs/portfolio-thumbs.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    PortfolioComponent,
+    PortfolioSlideComponent,
+    PortfolioSlideShowComponent,
+    PortfolioThumbComponent,
+    PortfolioThumbsComponent
   ],
   imports: [
     BrowserModule,

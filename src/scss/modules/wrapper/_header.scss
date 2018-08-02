@@ -13,17 +13,17 @@
     }
     h1 a {
       font: normal 34px "Lato", $global-fonts;
-      color: $highlight-1-1;
+      color: $color-7-1;
       text-decoration: none;
       text-transform: uppercase;
     }
     h1 a:hover {
-      color: $highlight-4-1;
+      color: $color-7-1;
     }
 
     h2 {
       font: normal 1.3rem 'Oswald', $global-fonts;
-      color: $highlight-3-1;
+      color: $color-7-1;
     }
   }
 }
@@ -68,7 +68,7 @@
   }
 
   nav ul li a {
-    color: $highlight-1-1;
+    color: $color-7-1;
   }
 }
 
@@ -108,7 +108,7 @@
       display: inline-block;
     }
     .hamburger-btn .slice {
-      background: $highlight-1-1;
+      background: $color-7-1;
     }
     .logo h1 {
       &, a {

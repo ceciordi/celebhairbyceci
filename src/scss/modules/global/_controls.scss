@@ -9,7 +9,7 @@
   box-shadow: 1px 1px 5px 0 transparentize(#555555, 0.72);
   margin: 3px;
   border-radius: 5px;
-  background: $highlight-1-1;
+  background: $color-7-1;
   //@include with-browser-prefixes(transform-origin, center center);
   @include transition (
     fit-with-browser-prefixes((
@@ -22,7 +22,7 @@
   padding: 13px;
 
   &:hover {
-    background: $highlight-4-1;
+    background: $color-7-1;
     cursor: pointer;
     @include transform(scale(1.1));
     color: #FFF;
@@ -30,7 +30,7 @@
   &:active,
   &.active {
     @include transform(scale(1.05));
-    background: $highlight-4-2;
+    background: $color-7-2;
     box-shadow: 1px 1px 5px 0 transparentize(#EEEEEE, 0.72);
   }
 }

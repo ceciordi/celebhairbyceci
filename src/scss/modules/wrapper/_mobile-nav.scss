@@ -6,7 +6,7 @@
     top: 0;
     margin: 0;
     box-sizing: border-box;
-    background: $highlight-1-1;
+    background: $color-7-1;
     overflow: auto;
     @include opacity(0);
     @include transform(translateX(-100%));

@@ -63,16 +63,16 @@ form {
       border: none;
       color: #FFF;
       font: bold 1.1rem "Lato" $global-fonts;
-      background: $highlight-1-1;
+      background: $color-7-1;
       text-transform: uppercase;
 
       &:hover {
-        background: $highlight-4-1;
+        background: $color-7-1;
         color: #fff;
       }
 
       &:active {
-        background: $color-5-6;
+        background: $color-3-6;
         color: #fff;
       }
     }
