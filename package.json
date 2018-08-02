@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "rpi": "node ./misc-scripts/refresh-portfolio-images/refresh-portfolio-images.js",
-    "rpj": "node ./misc-scripts/refresh-portfolio-json/refresh-portfolio-json.js"
+    "rpj": "node  --inspect ./misc-scripts/refresh-portfolio-json/refresh-portfolio-json.js"
   },
   "private": true,
   "dependencies": {
@@ -56,9 +56,9 @@
     "typescript": "~2.7.2"
   },
   "refreshPortfolioJsonC": {
-      "markdownInputPath":  "./src/assets/portfolio-descriptions-markdown",
-      "inputPath":          "./src/assets/portfolios-processed",
-      "outputPath":         "./src/assets/json",
+      "markdownInputPath":  "src/assets/portfolio-descriptions-markdown",
+      "inputPath":          "src/assets/portfolios-processed",
+      "outputPath":         "src/assets/json",
       "outputFileName":     "portfolios-data.json"
   },
   "refreshPortfolioImagesConfig": {

@@ -4,6 +4,7 @@
  * @description Generates thumbs for images in 'portfolios-pending' folder (see '../../package.json' `refreshPortfolioImagesConfig` key)
  * @todo Add more thorough description of this script, document functions and add comments where useful.
  * @todo Add command line flag for skipping already generated images or flag for forcing the rewrite of such images.
+ * @todo Make script runnable from any directory (currently script doesn't access paths relatively).
  */
 
 const

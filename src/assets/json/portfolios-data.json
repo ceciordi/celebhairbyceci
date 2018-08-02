@@ -1,0 +1,2157 @@
+[
+    {
+        "fileName": ".gitkeep",
+        "filePath": "src/assets/portfolios-processed/.gitkeep",
+        "fileType": ""
+    },
+    {
+        "fileName": "celebrity",
+        "filePath": "src/assets/portfolios-processed/celebrity",
+        "fileType": "dir",
+        "description": {},
+        "files": [
+            {
+                "fileName": "adam-schuman-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/adam-schuman-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "adam-schuman-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/adam-schuman-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "adam-schuman-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/adam-schuman-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "adam-schuman-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/adam-schuman-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "adam-schuman-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/adam-schuman-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "adam-schuman-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/adam-schuman-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "alberto-rosende-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/alberto-rosende-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "alberto-rosende-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/alberto-rosende-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "alberto-rosende-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/alberto-rosende-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "alberto-rosende-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/alberto-rosende-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "alberto-rosende-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/alberto-rosende-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "alberto-rosende-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/alberto-rosende-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "alek-wek-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/alek-wek-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "alek-wek-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/alek-wek-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "alek-wek-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/alek-wek-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "alek-wek-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/alek-wek-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "alek-wek-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/alek-wek-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "alek-wek-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/alek-wek-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "ashley-nicole-black.jpg-144.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/ashley-nicole-black.jpg-144.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "ashley-nicole-black.jpg-233.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/ashley-nicole-black.jpg-233.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "ashley-nicole-black.jpg-377.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/ashley-nicole-black.jpg-377.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "ashley-nicole-black.jpg-610.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/ashley-nicole-black.jpg-610.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "ashley-nicole-black.jpg-89.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/ashley-nicole-black.jpg-89.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "ashley-nicole-black.jpg-987.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/ashley-nicole-black.jpg-987.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "aubrey-joseph-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/aubrey-joseph-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "aubrey-joseph-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/aubrey-joseph-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "aubrey-joseph-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/aubrey-joseph-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "aubrey-joseph-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/aubrey-joseph-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "aubrey-joseph-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/aubrey-joseph-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "aubrey-joseph-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/aubrey-joseph-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "barry-keoghan-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/barry-keoghan-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "barry-keoghan-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/barry-keoghan-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "barry-keoghan-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/barry-keoghan-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "barry-keoghan-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/barry-keoghan-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "barry-keoghan-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/barry-keoghan-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "barry-keoghan-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/barry-keoghan-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "billy-magnussen-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/billy-magnussen-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "billy-magnussen-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/billy-magnussen-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "billy-magnussen-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/billy-magnussen-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "billy-magnussen-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/billy-magnussen-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "billy-magnussen-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/billy-magnussen-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "billy-magnussen-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/billy-magnussen-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "bobby-berk.jpg-144.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/bobby-berk.jpg-144.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "bobby-berk.jpg-233.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/bobby-berk.jpg-233.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "bobby-berk.jpg-377.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/bobby-berk.jpg-377.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "bobby-berk.jpg-610.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/bobby-berk.jpg-610.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "bobby-berk.jpg-89.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/bobby-berk.jpg-89.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "bobby-berk.jpg-987.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/bobby-berk.jpg-987.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "booboo-stewart-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/booboo-stewart-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "booboo-stewart-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/booboo-stewart-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "booboo-stewart-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/booboo-stewart-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "booboo-stewart-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/booboo-stewart-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "booboo-stewart-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/booboo-stewart-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "booboo-stewart-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/booboo-stewart-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "brandon-victor-dixon-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/brandon-victor-dixon-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "brandon-victor-dixon-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/brandon-victor-dixon-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "brandon-victor-dixon-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/brandon-victor-dixon-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "brandon-victor-dixon-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/brandon-victor-dixon-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "brandon-victor-dixon-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/brandon-victor-dixon-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "brandon-victor-dixon-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/brandon-victor-dixon-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "casper-van-dien-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/casper-van-dien-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "casper-van-dien-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/casper-van-dien-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "casper-van-dien-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/casper-van-dien-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "casper-van-dien-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/casper-van-dien-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "casper-van-dien-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/casper-van-dien-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "casper-van-dien-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/casper-van-dien-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "charlie-booker-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/charlie-booker-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "charlie-booker-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/charlie-booker-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "charlie-booker-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/charlie-booker-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "charlie-booker-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/charlie-booker-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "charlie-booker-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/charlie-booker-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "charlie-booker-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/charlie-booker-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "dan-bucatinksy-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/dan-bucatinksy-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "dan-bucatinksy-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/dan-bucatinksy-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "dan-bucatinksy-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/dan-bucatinksy-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "dan-bucatinksy-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/dan-bucatinksy-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "dan-bucatinksy-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/dan-bucatinksy-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "dan-bucatinksy-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/dan-bucatinksy-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "darren-star-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/darren-star-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "darren-star-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/darren-star-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "darren-star-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/darren-star-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "darren-star-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/darren-star-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "darren-star-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/darren-star-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "darren-star-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/darren-star-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "david-duchovny-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/david-duchovny-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "david-duchovny-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/david-duchovny-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "david-duchovny-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/david-duchovny-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "david-duchovny-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/david-duchovny-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "david-duchovny-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/david-duchovny-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "david-duchovny-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/david-duchovny-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "david-spade-netflix-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/david-spade-netflix-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "david-spade-netflix-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/david-spade-netflix-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "david-spade-netflix-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/david-spade-netflix-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "david-spade-netflix-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/david-spade-netflix-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "david-spade-netflix-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/david-spade-netflix-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "david-spade-netflix-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/david-spade-netflix-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "emily-weiss-cfda-144.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/emily-weiss-cfda-144.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "emily-weiss-cfda-233.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/emily-weiss-cfda-233.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "emily-weiss-cfda-377.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/emily-weiss-cfda-377.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "emily-weiss-cfda-610.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/emily-weiss-cfda-610.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "emily-weiss-cfda-89.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/emily-weiss-cfda-89.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "emily-weiss-cfda-987.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/emily-weiss-cfda-987.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "guillermo-del-toro-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/guillermo-del-toro-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "guillermo-del-toro-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/guillermo-del-toro-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "guillermo-del-toro-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/guillermo-del-toro-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "guillermo-del-toro-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/guillermo-del-toro-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "guillermo-del-toro-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/guillermo-del-toro-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "guillermo-del-toro-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/guillermo-del-toro-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "hale-appleman-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/hale-appleman-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "hale-appleman-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/hale-appleman-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "hale-appleman-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/hale-appleman-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "hale-appleman-4-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/hale-appleman-4-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "hale-appleman-4-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/hale-appleman-4-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "hale-appleman-4-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/hale-appleman-4-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "hale-appleman-4-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/hale-appleman-4-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "hale-appleman-4-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/hale-appleman-4-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "hale-appleman-4-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/hale-appleman-4-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "hale-appleman-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/hale-appleman-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "hale-appleman-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/hale-appleman-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "hale-appleman-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/hale-appleman-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "holly-hunter-interview-mag-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/holly-hunter-interview-mag-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "holly-hunter-interview-mag-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/holly-hunter-interview-mag-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "holly-hunter-interview-mag-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/holly-hunter-interview-mag-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "holly-hunter-interview-mag-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/holly-hunter-interview-mag-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "holly-hunter-interview-mag-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/holly-hunter-interview-mag-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "holly-hunter-interview-mag-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/holly-hunter-interview-mag-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "isabelle-huppert-interview-mag.jpeg-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/isabelle-huppert-interview-mag.jpeg-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "isabelle-huppert-interview-mag.jpeg-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/isabelle-huppert-interview-mag.jpeg-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "isabelle-huppert-interview-mag.jpeg-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/isabelle-huppert-interview-mag.jpeg-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "isabelle-huppert-interview-mag.jpeg-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/isabelle-huppert-interview-mag.jpeg-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "isabelle-huppert-interview-mag.jpeg-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/isabelle-huppert-interview-mag.jpeg-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "isabelle-huppert-interview-mag.jpeg-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/isabelle-huppert-interview-mag.jpeg-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "jacob-batalon-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/jacob-batalon-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "jacob-batalon-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/jacob-batalon-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "jacob-batalon-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/jacob-batalon-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "jacob-batalon-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/jacob-batalon-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "jacob-batalon-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/jacob-batalon-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "jacob-batalon-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/jacob-batalon-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "jason-sudekis-toronto-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/jason-sudekis-toronto-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "jason-sudekis-toronto-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/jason-sudekis-toronto-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "jason-sudekis-toronto-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/jason-sudekis-toronto-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "jason-sudekis-toronto-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/jason-sudekis-toronto-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "jason-sudekis-toronto-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/jason-sudekis-toronto-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "jason-sudekis-toronto-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/jason-sudekis-toronto-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "john-mulaney-2.jpg-144.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/john-mulaney-2.jpg-144.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "john-mulaney-2.jpg-233.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/john-mulaney-2.jpg-233.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "john-mulaney-2.jpg-377.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/john-mulaney-2.jpg-377.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "john-mulaney-2.jpg-610.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/john-mulaney-2.jpg-610.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "john-mulaney-2.jpg-89.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/john-mulaney-2.jpg-89.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "john-mulaney-2.jpg-987.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/john-mulaney-2.jpg-987.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "john-mulaney.jpg-144.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/john-mulaney.jpg-144.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "john-mulaney.jpg-233.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/john-mulaney.jpg-233.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "john-mulaney.jpg-377.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/john-mulaney.jpg-377.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "john-mulaney.jpg-610.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/john-mulaney.jpg-610.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "john-mulaney.jpg-89.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/john-mulaney.jpg-89.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "john-mulaney.jpg-987.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/john-mulaney.jpg-987.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "jonathan-van-ness-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/jonathan-van-ness-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "jonathan-van-ness-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/jonathan-van-ness-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "jonathan-van-ness-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/jonathan-van-ness-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "jonathan-van-ness-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/jonathan-van-ness-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "jonathan-van-ness-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/jonathan-van-ness-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "jonathan-van-ness-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/jonathan-van-ness-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "judi-dench-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/judi-dench-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "judi-dench-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/judi-dench-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "judi-dench-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/judi-dench-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "judi-dench-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/judi-dench-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "judi-dench-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/judi-dench-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "judi-dench-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/judi-dench-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "kal-penn-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/kal-penn-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "kal-penn-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/kal-penn-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "kal-penn-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/kal-penn-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "kal-penn-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/kal-penn-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "kal-penn-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/kal-penn-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "kal-penn-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/kal-penn-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "karen-elson-tom-ford-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/karen-elson-tom-ford-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "karen-elson-tom-ford-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/karen-elson-tom-ford-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "karen-elson-tom-ford-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/karen-elson-tom-ford-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "karen-elson-tom-ford-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/karen-elson-tom-ford-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "karen-elson-tom-ford-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/karen-elson-tom-ford-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "karen-elson-tom-ford-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/karen-elson-tom-ford-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "karenelson-met-gala-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/karenelson-met-gala-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "karenelson-met-gala-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/karenelson-met-gala-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "karenelson-met-gala-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/karenelson-met-gala-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "karenelson-met-gala-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/karenelson-met-gala-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "karenelson-met-gala-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/karenelson-met-gala-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "karenelson-met-gala-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/karenelson-met-gala-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "kyle-harris-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/kyle-harris-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "kyle-harris-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/kyle-harris-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "kyle-harris-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/kyle-harris-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "kyle-harris-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/kyle-harris-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "kyle-harris-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/kyle-harris-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "kyle-harris-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/kyle-harris-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "laura-love.jpg-144.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/laura-love.jpg-144.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "laura-love.jpg-233.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/laura-love.jpg-233.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "laura-love.jpg-377.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/laura-love.jpg-377.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "laura-love.jpg-610.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/laura-love.jpg-610.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "laura-love.jpg-89.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/laura-love.jpg-89.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "laura-love.jpg-987.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/laura-love.jpg-987.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "leo-di-caprio-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/leo-di-caprio-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "leo-di-caprio-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/leo-di-caprio-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "leo-di-caprio-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/leo-di-caprio-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "leo-di-caprio-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/leo-di-caprio-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "leo-di-caprio-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/leo-di-caprio-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "leo-di-caprio-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/leo-di-caprio-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "martin-mac-donagh.jpg-144.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/martin-mac-donagh.jpg-144.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "martin-mac-donagh.jpg-233.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/martin-mac-donagh.jpg-233.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "martin-mac-donagh.jpg-377.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/martin-mac-donagh.jpg-377.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "martin-mac-donagh.jpg-610.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/martin-mac-donagh.jpg-610.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "martin-mac-donagh.jpg-89.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/martin-mac-donagh.jpg-89.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "martin-mac-donagh.jpg-987.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/martin-mac-donagh.jpg-987.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "martin-mc-donagh-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/martin-mc-donagh-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "martin-mc-donagh-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/martin-mc-donagh-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "martin-mc-donagh-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/martin-mc-donagh-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "martin-mc-donagh-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/martin-mc-donagh-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "martin-mc-donagh-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/martin-mc-donagh-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "martin-mc-donagh-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/martin-mc-donagh-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "martin-mc-donagh-phoebe-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/martin-mc-donagh-phoebe-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "martin-mc-donagh-phoebe-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/martin-mc-donagh-phoebe-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "martin-mc-donagh-phoebe-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/martin-mc-donagh-phoebe-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "martin-mc-donagh-phoebe-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/martin-mc-donagh-phoebe-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "martin-mc-donagh-phoebe-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/martin-mc-donagh-phoebe-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "martin-mc-donagh-phoebe-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/martin-mc-donagh-phoebe-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "martin-mcDonagh-gg-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/martin-mcDonagh-gg-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "martin-mcDonagh-gg-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/martin-mcDonagh-gg-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "martin-mcDonagh-gg-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/martin-mcDonagh-gg-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "martin-mcDonagh-gg-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/martin-mcDonagh-gg-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "martin-mcDonagh-gg-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/martin-mcDonagh-gg-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "martin-mcDonagh-gg-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/martin-mcDonagh-gg-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "maude-apatow-interview-mag-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/maude-apatow-interview-mag-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "maude-apatow-interview-mag-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/maude-apatow-interview-mag-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "maude-apatow-interview-mag-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/maude-apatow-interview-mag-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "maude-apatow-interview-mag-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/maude-apatow-interview-mag-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "maude-apatow-interview-mag-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/maude-apatow-interview-mag-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "maude-apatow-interview-mag-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/maude-apatow-interview-mag-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "maude-apatow.jpg-144.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/maude-apatow.jpg-144.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "maude-apatow.jpg-233.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/maude-apatow.jpg-233.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "maude-apatow.jpg-377.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/maude-apatow.jpg-377.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "maude-apatow.jpg-610.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/maude-apatow.jpg-610.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "maude-apatow.jpg-89.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/maude-apatow.jpg-89.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "maude-apatow.jpg-987.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/maude-apatow.jpg-987.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "michael-kelly-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/michael-kelly-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "michael-kelly-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/michael-kelly-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "michael-kelly-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/michael-kelly-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "michael-kelly-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/michael-kelly-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "michael-kelly-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/michael-kelly-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "michael-kelly-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/michael-kelly-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "michael-moore-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/michael-moore-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "michael-moore-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/michael-moore-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "michael-moore-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/michael-moore-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "michael-moore-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/michael-moore-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "michael-moore-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/michael-moore-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "michael-moore-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/michael-moore-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "natalie-dormer-interview-mag-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/natalie-dormer-interview-mag-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "natalie-dormer-interview-mag-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/natalie-dormer-interview-mag-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "natalie-dormer-interview-mag-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/natalie-dormer-interview-mag-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "natalie-dormer-interview-mag-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/natalie-dormer-interview-mag-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "natalie-dormer-interview-mag-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/natalie-dormer-interview-mag-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "natalie-dormer-interview-mag-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/natalie-dormer-interview-mag-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "rufus-wainwright-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/rufus-wainwright-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "rufus-wainwright-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/rufus-wainwright-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "rufus-wainwright-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/rufus-wainwright-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "rufus-wainwright-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/rufus-wainwright-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "rufus-wainwright-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/rufus-wainwright-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "rufus-wainwright-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/rufus-wainwright-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "sophia-amoruso-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/sophia-amoruso-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "sophia-amoruso-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/sophia-amoruso-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "sophia-amoruso-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/sophia-amoruso-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "sophia-amoruso-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/sophia-amoruso-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "sophia-amoruso-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/sophia-amoruso-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "sophia-amoruso-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/sophia-amoruso-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "stellan-skarsgaard-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/stellan-skarsgaard-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "stellan-skarsgaard-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/stellan-skarsgaard-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "stellan-skarsgaard-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/stellan-skarsgaard-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "stellan-skarsgaard-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/stellan-skarsgaard-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "stellan-skarsgaard-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/stellan-skarsgaard-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "stellan-skarsgaard-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/stellan-skarsgaard-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "stellan-skarsgard.jpg-144.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/stellan-skarsgard.jpg-144.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "stellan-skarsgard.jpg-233.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/stellan-skarsgard.jpg-233.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "stellan-skarsgard.jpg-377.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/stellan-skarsgard.jpg-377.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "stellan-skarsgard.jpg-610.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/stellan-skarsgard.jpg-610.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "stellan-skarsgard.jpg-89.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/stellan-skarsgard.jpg-89.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "stellan-skarsgard.jpg-987.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/stellan-skarsgard.jpg-987.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "tobin-bell-vulture-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/tobin-bell-vulture-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "tobin-bell-vulture-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/tobin-bell-vulture-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "tobin-bell-vulture-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/tobin-bell-vulture-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "tobin-bell-vulture-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/tobin-bell-vulture-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "tobin-bell-vulture-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/tobin-bell-vulture-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "tobin-bell-vulture-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/tobin-bell-vulture-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "torrey-de-vito-144.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/torrey-de-vito-144.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "torrey-de-vito-233.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/torrey-de-vito-233.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "torrey-de-vito-377.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/torrey-de-vito-377.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "torrey-de-vito-610.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/torrey-de-vito-610.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "torrey-de-vito-89.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/torrey-de-vito-89.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "torrey-de-vito-987.jpg",
+                "filePath": "src/assets/portfolios-processed/celebrity/torrey-de-vito-987.jpg",
+                "fileType": "file",
+                "ext": ".jpg",
+                "mimeType": "image/jpeg"
+            },
+            {
+                "fileName": "will-tilston.jpg-144.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/will-tilston.jpg-144.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "will-tilston.jpg-233.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/will-tilston.jpg-233.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "will-tilston.jpg-377.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/will-tilston.jpg-377.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "will-tilston.jpg-610.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/will-tilston.jpg-610.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "will-tilston.jpg-89.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/will-tilston.jpg-89.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "will-tilston.jpg-987.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/will-tilston.jpg-987.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "zach-woods.jpg-144.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/zach-woods.jpg-144.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "zach-woods.jpg-233.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/zach-woods.jpg-233.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "zach-woods.jpg-377.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/zach-woods.jpg-377.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "zach-woods.jpg-610.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/zach-woods.jpg-610.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "zach-woods.jpg-89.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/zach-woods.jpg-89.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            },
+            {
+                "fileName": "zach-woods.jpg-987.png",
+                "filePath": "src/assets/portfolios-processed/celebrity/zach-woods.jpg-987.png",
+                "fileType": "file",
+                "ext": ".png",
+                "mimeType": "image/png"
+            }
+        ]
+    }
+]

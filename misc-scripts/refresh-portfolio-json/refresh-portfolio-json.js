@@ -1,34 +1,40 @@
 /**
  * Created by elydelacruz on 7/19/16.
+ * @description Generate a JSON file which resembles all 'portfolio' directories and their files.
+ * @todo Make script reference asset paths relatively.
  */
 
 const
-    fs = require('fs'),
     path = require('path'),
     mime = require('mime'),
     markdown = require('markdown-it')(),
-    {promisify} = require('util'),
+    {assign, peek, error, log} = require('fjl'),
     {ensureOutputPath, ioReadDirectory, ioStat, ioReadFile, ioWriteFile, ioDoesFilePathExists} = require('../utils/utils'),
-    ioMimeType = promisify(mime.getType.bind(mime)),
     {refreshPortfolioImagesConfig, refreshPortfolioJsonC} = require('../../package'),
     entryDefaults = require('./entry-defaults'),
     defaultOptions = {
-        markdownInputPath:  './src/assets/portfolio-descriptions-markdown',
-        inputPath:          './src/assets/portfolios-processed',
-        outputPath:         './src/assets/json',
+        markdownInputPath:  'src/assets/portfolio-descriptions-markdown',
+        inputPath:          refreshPortfolioImagesConfig.outputPathPrefix,
+        outputPath:         'src/assets/json',
         outputFileName:     'portfolios-data.json'
     },
 
-    incomingOptions = assign({}, defaultOptions, refreshPortfolioJsonC),
+    incomingOptions = {...defaultOptions, ...refreshPortfolioJsonC},
 
-    refreshPortfoliosJson = ({inputPath, outputPath, outputFileName, markdownInputPath}) =>
-        ensureOutputPath(outputPath)
-            .then(() => parseDir({inputPath, outputPath, outputFileName, markdownInputPath}))
+    refreshPortfoliosJson = options => {
+        const {outputPath, outputFileName} = options;
+        return ensureOutputPath(outputPath)
+            .then(() => parseDir(options))
+            .then(parsed => peek('\npeek at parsed:', parsed))
             .then(JSON.stringify.bind(JSON))
-            .then(json => ioWriteFile(path.join(outputPath, outputFileName), json)),
+            .then(json => ioWriteFile(path.join(outputPath, outputFileName), json))
+            .catch(error);
+    },
 
-    parseDir = ({inputPath, outputPath, outputFileName, markdownInputPath}) =>
-        ioReadDirectory(inputPath).then(files =>
+    parseDir = options => {
+        const {inputPath, outputPath, outputFileName, markdownInputPath} = options;
+        log(`\nParsing file path: ${inputPath} ...`);
+        return ioReadDirectory(inputPath).then(files =>
             Promise.all(files.map(file => {
                     const filePath = path.join(inputPath, file),
                         httpPathName = filePath.replace(/\\+/, '/').split('/src/').pop(),
@@ -37,25 +43,30 @@ const
                             filePath: httpPathName,
                             fileType: ''
                         };
-                    ioStat(filePath).then(stat => {
+                    return ioStat(filePath).then(stat => {
                         if (stat.isDirectory()) {
                             entry.fileType = 'dir';
                             entry.description = getDirDescr(file, markdownInputPath);
-                            return parseDir({filePath, outputPath, outputFileName, markdownInputPath})
+                            log (`\nFound nested directory, parsing it ...`);
+                            return parseDir({inputPath: filePath, outputPath, outputFileName, markdownInputPath})
                                 .then(f => { entry.files = f; return entry; });
                         }
-                        else if (/\d+\.(jpg|png|jpeg)/.test(file)) {
-                            return ioMimeType(filePath)
-                                .then(mimeType => (assign(entry, {
-                                    fileType: 'file',
-                                    ext: path.extname(file),
-                                    mimeType: mimeType
-                                })));
-                        }
-                        return Promise.resolve(entry);
+                        parseFile({inputPath: filePath, outputPath, outputFileName, markdownInputPath}, entry);
+
                     });
                 })
-            )),
+            ));
+    },
+
+    parseFile = (options, entry) =>
+        Promise.resolve(
+            /\d+\.(jpg|png|jpeg)/.test(file) ? // Make this regex and option of `incomingConfig`
+                assign(entry, {
+                    fileType: 'file',
+                    ext: path.extname(file),
+                    mimeType: mime.getType(file)
+                }) : entry
+        ),
 
     getDirDescr = (folderName, markdownInputPath) => {
         const mdLocation = path.join(markdownInputPath, folderName + '.md');
@@ -67,3 +78,9 @@ const
 ;
 
 refreshPortfoliosJson(incomingOptions);
+
+/* SUDO CODE
+    For each in 'portfolios' directory
+
+
+ */
