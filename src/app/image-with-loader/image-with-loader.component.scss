@@ -1,0 +1,14 @@
+@import "../../scss/base/color-theme";
+
+.image-with-preloader {
+    background: $color-7-3;
+
+    .preload-overlay {
+        background: #FFF;
+
+        .progress-text {
+            color: $color-7-1;
+        }
+    }
+
+}

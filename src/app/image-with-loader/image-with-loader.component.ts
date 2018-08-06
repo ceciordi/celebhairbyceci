@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {assign, isNumber} from 'fjl';
+import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 
 @Component({
     selector: 'app-image-with-loader',
@@ -7,15 +8,22 @@ import {assign, isNumber} from 'fjl';
     styleUrls: ['./image-with-loader.component.scss']
 })
 export class ImageWithLoaderComponent implements OnInit {
-    private src = '';
-    private loading = false;
+    @Input() dataSrc: string;
     private xhr = new XMLHttpRequest();
-    private progress = 0;
-    className = 'image-with-preloader';
-    dataSrc = '';
-    onClick = e => undefined;
+    private defaultClassName = 'image-with-preloader';
+    readonly suppliedClassName;
+    alt = 'Image description here';
+    className = '';
+    src: SafeResourceUrl;
+    loading = false;
+    progress = 0;
+    progressText = 'loading';
+    onClick = () => undefined;
 
-    constructor() {}
+    constructor(private sanitizer: DomSanitizer) {
+        this.className = this.className || this.defaultClassName;
+        this.suppliedClassName = this.className;
+    }
 
     ngOnInit() {
         this.initXHR();
@@ -27,10 +35,12 @@ export class ImageWithLoaderComponent implements OnInit {
         xhr.responseType = 'blob';
         xhr.addEventListener('loadstart', self.onLoadStart.bind(self));
         xhr.addEventListener('progress', self.onProgress.bind(self));
-        // xhr.addEventListener('loadend', ctx.onLoadEnd);
+        xhr.addEventListener('loadend', self.onLoadEnd.bind(self));
         xhr.addEventListener('load', self.onLoad.bind(self));
         xhr.addEventListener('error', self.onError.bind(self));
-        // xhr.addEventListener('abort', this.onAbort);
+        xhr.addEventListener('abort', self.onAbort.bind(self));
+        console.log(self.dataSrc);
+        self.loadSrc(self.dataSrc);
     }
 
     loadSrc (src) {
@@ -41,29 +51,35 @@ export class ImageWithLoaderComponent implements OnInit {
         this.xhr.send();
     }
 
-    onLoadStart (e) {
-        // this.refs.progressText.innerHTML = '0%';
-        // addClass('loading', this.refs.self);
+    onLoadStart () {
+        this.progressText = '0%';
+        this.className += ' loading';
     }
 
     onProgress (e) {
         if (e.lengthComputable) {
             const expectedProgress = e.loaded / e.total,
                 progress = isNumber(expectedProgress) ? expectedProgress : 0;
-            // this.refs.progressText.innerHTML = Math.round((progress * 100)) + '%';
+            this.progressText = Math.round((progress * 100)) + '%';
         }
     }
 
     onLoad () {
-        this.src = window.URL.createObjectURL(this.xhr.response);
+        this.src = this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(this.xhr.response));
         this.loading = false;
-        // removeClass('loading', this.refs.self);
+        this.className = this.suppliedClassName;
     }
 
-    // onLoadEnd (e) { }
+    onLoadEnd () {
+        this.progressText = 'Load ended';
+    }
 
-    onError (e) {
-        // this.refs.progressText.innerHTML = 'Unable to load image.';
+    onAbort () {
+        this.progressText = 'Image loading aborted.';
+    }
+
+    onError () {
+        this.progressText = 'Unable to load image.';
     }
 
 }
