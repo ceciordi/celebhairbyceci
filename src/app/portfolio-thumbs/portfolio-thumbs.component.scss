@@ -1,0 +1,33 @@
+app-portfolio-thumbs {
+
+}
+
+@media (min-width: 320px) and (max-width: 767px) and (orientation: portrait)  {
+    .carousel-thumbs .image-with-preloader {
+        flex-basis: 100%;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px) and (orientation: landscape)  {
+    .carousel-thumbs .image-with-preloader {
+        flex-basis: 32.33%;
+        min-width: 32.33%;
+        max-width: 32.33%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .carousel-thumbs .image-with-preloader {
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1439px) {
+    .carousel-thumbs .image-with-preloader {
+    }
+}
+
+@media (min-width: 1440px) and (max-width: 3840px) {
+    .carousel-thumbs .image-with-preloader {
+    }
+}
+

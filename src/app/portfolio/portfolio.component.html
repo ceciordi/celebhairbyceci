@@ -1,6 +1,31 @@
-<p>
-    portfolio works!
-</p>
+
 <app-portfolio-slide-show></app-portfolio-slide-show>
+
 <app-portfolio-thumbs></app-portfolio-thumbs>
-<app-image-with-loader dataSrc="/assets/portfolios-processed/celebrity/adam-schuman-987.jpg"></app-image-with-loader>
+<div class="bg-overlay hidden-by-z-index">&nbsp;</div>
+<div id="carousel" class="carousel hidden-by-z-index">
+    <div class="carousel-scrollable-container">
+        <div class="controls">
+            <a class="close-btn btn">&#10005;</a>
+        </div>
+        <div class="carousel-items">
+        </div>
+        <svg class="arrow-btn-container arrow-btn-left" version="1.1"
+             xmlns="http://www.w3.org/2000/svg">
+            <g class="arrow-btn dark-arrow-btn" style="filter: url(#svg-drop-shadow)">
+                <rect class="bg"/>
+                <polyline class="outline" points="47 13 13 47 47 81"/>
+                <polyline class="foreground" points="47 13 13 47 47 81"/>
+            </g>
+        </svg>
+        <svg class="arrow-btn-container arrow-btn-right" version="1.1"
+             xmlns="http://www.w3.org/2000/svg">
+            <g class="arrow-btn dark-arrow-btn" style="filter: url(#svg-drop-shadow)">
+                <rect class="bg"/>
+                <polyline class="outline" points="13 13 47 47 13 81"/>
+                <polyline class="foreground" points="13 13 47 47 13 81"/>
+            </g>
+        </svg>
+    </div>
+</div>
+

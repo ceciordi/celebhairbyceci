@@ -18,7 +18,6 @@ export class ImageWithLoaderComponent implements OnInit {
     loading = false;
     progress = 0;
     progressText = 'loading';
-    onClick = () => undefined;
 
     constructor(private sanitizer: DomSanitizer) {
         this.className = this.className || this.defaultClassName;

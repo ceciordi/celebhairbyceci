@@ -2,7 +2,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 0 13px;
+    align-items: center;
+    padding: 0 13px;
 
   .image-with-preloader {
     position: relative;
@@ -10,7 +11,7 @@
     //border: 1px solid #bbb;
     text-align: center;
     overflow: hidden;
-    margin-bottom: 1%;
+    margin: 0.5% 0.5%;
 
     @include with-browser-prefixes(transform-origin, (center center));
     @include transition(
@@ -44,56 +45,35 @@
 
   .image-with-preloader img {
     width: 108%;
-    min-height: 21vh;
   }
 }
 
-@media (min-width: 320px) and (max-width: 568px) {
-  .carousel-thumbs {
-    justify-content: space-between;
-
-    .image-with-preloader img {
-      min-height: 18vh;
+@media (min-width: 320px) and (max-width: 767px) and (orientation: portrait)  {
+    .carousel-thumbs .image-with-preloader {
+        flex-basis: 100%;
     }
-    .image-with-preloader {
-      flex-basis: 48%;
-      min-width: 48%;
-      min-height: 18vh;
-      max-height: 21vh;
-    }
-
-  }
 }
 
-@media (min-width: 568px) and (max-width: 767px) {
-  .carousel-thumbs {
-    justify-content: space-between;
-
-    .image-with-preloader {
-      flex-basis: 32.33%;
-      min-width: 32.33%;
-      min-height: 21vh;
-      max-height: 21vh;
+@media (min-width: 320px) and (max-width: 767px) and (orientation: landscape)  {
+    .carousel-thumbs .image-with-preloader {
+        flex-basis: 32.33%;
+        min-width: 32.33%;
+        max-width: 32.33%;
     }
-  }
 }
 
-@media (min-width: 568px) and (max-width: 767px) and (orientation: landscape) {
-  .carousel-thumbs {
-    .image-with-preloader {
-      min-height: 32.33vh;
+@media (min-width: 768px) and (max-width: 1024px) {
+    .carousel-thumbs .image-with-preloader {
     }
-  }
 }
 
-@media (min-width: 768px) and (max-width: 3840px) {
-  .carousel-thumbs {
-    .image-with-preloader {
-      flex-basis: 24%;
-      min-width: 24%;
-      min-height: 21vh;
-      max-height: 21vh;
+@media (min-width: 1025px) and (max-width: 1439px) {
+    .carousel-thumbs .image-with-preloader {
     }
+}
+
+@media (min-width: 1440px) and (max-width: 3840px) {
+  .carousel-thumbs .image-with-preloader {
   }
 }
 

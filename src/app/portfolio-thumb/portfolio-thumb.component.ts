@@ -9,7 +9,6 @@ export class PortfolioThumbComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

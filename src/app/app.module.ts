@@ -9,6 +9,7 @@ import {PortfolioSlideShowComponent} from './portfolio-slide-show/portfolio-slid
 import {PortfolioThumbComponent} from './portfolio-thumb/portfolio-thumb.component';
 import {PortfolioThumbsComponent} from './portfolio-thumbs/portfolio-thumbs.component';
 import { ImageWithLoaderComponent } from './image-with-loader/image-with-loader.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ImageWithLoaderComponent } from './image-with-loader/image-with-loader.
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+      HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
