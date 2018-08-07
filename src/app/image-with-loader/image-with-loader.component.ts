@@ -70,7 +70,7 @@ export class ImageWithLoaderComponent implements OnInit {
     }
 
     onLoadEnd () {
-        this.progressText = 'Load ended';
+        // this.progressText = 'Load ended';
     }
 
     onAbort () {
