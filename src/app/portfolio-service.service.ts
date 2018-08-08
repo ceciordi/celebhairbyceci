@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {error} from 'fjl';
+import {keys, error} from 'fjl';
 import {catchError, tap} from 'rxjs/operators';
 
 const
@@ -9,7 +9,17 @@ const
         widths.reduce((agg, w) => {
             agg[w] = imagesList.filter(item => Math.round(item.width) === w);
             return agg;
-        }, {})
+        }, {}),
+
+    addIndicesToImagesByWidths = (imagesByWidths) => // For all keys
+        keys(imagesByWidths).reduce((agg, key) => {
+            // For each in set add index property
+            agg[key].forEach((x, ind) => {
+                x.index = ind;
+                return x;
+            });
+            return agg;
+        }, imagesByWidths)
 ;
 
 @Injectable({
@@ -32,7 +42,13 @@ export class PortfolioServiceService {
             .then(res => res.json())
             .then(portfolios => {
                 this.imagesList = portfolios;
-                this.imagesBySizes = separateImagesByWidths(portfolios[0].files, this.sizes);
+                this.imagesBySizes =
+                    addIndicesToImagesByWidths(
+                        separateImagesByWidths(
+                            portfolios[0].files,
+                            this.sizes
+                        )
+                    );
                 return this.imagesBySizes;
             })
             .catch(error);

@@ -1,3 +1,7 @@
 <div class="carousel-thumbs">
-    <app-image-with-loader *ngFor="let item of items" dataSrc="{{item.filePath}}"></app-image-with-loader>
+    <app-image-with-loader
+        *ngFor="let item of items"
+        dataSrc="{{item.filePath}}"
+        (click)="onThumbClick($event, item)"
+    ></app-image-with-loader>
 </div>
