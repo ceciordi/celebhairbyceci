@@ -16,19 +16,26 @@ const
     providedIn: 'root'
 })
 export class PortfolioServiceService {
-    imagesList: object[] = [];
-    imagesBySizes: object = {};
+    private imagesList: object[];
+    private imagesBySizes: object = {};
+    private fetchImagesIo: Promise<object>;
     endpointUrl = '/assets/json/portfolios-data.json';
     sizes = [55, 89, 233, 377, 610, 987];
-    constructor(private http: HttpClient) {}
+
+    constructor() {}
+
     fetchImages () {
-        return this.http.get(this.endpointUrl)
-            .pipe(tap(portfolios => {
-                console.log(portfolios);
-                // this.imagesList = imagesList;
+        if (this.fetchImagesIo) {
+            return this.fetchImagesIo;
+        }
+        return this.fetchImagesIo = fetch(this.endpointUrl)
+            .then(res => res.json())
+            .then(portfolios => {
+                this.imagesList = portfolios;
                 this.imagesBySizes = separateImagesByWidths(portfolios[0].files, this.sizes);
                 return this.imagesBySizes;
-            }), catchError(error));
+            })
+            .catch(error);
     }
 
 }
