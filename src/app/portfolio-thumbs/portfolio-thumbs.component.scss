@@ -1,21 +1,36 @@
 @import "../../scss/component-includes";
 
+
+app-portfolio-thumbs,
+app-image-with-loader,
 .carousel-thumbs {
-    position: relative;
+    @extend %pos-rel;
+}
+
+app-portfolio-thumbs {
+    display: block;
+    width: 100%;
+}
+
+.carousel-thumbs {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     padding: 0 13px;
 
+    app-image-with-loader,
     .image-with-preloader {
-        position: relative;
         display: inline-block;
-        //border: 1px solid #bbb;
         text-align: center;
-        overflow: hidden;
-        margin: 0.5% 0.5%;
+    }
 
+    app-image-with-loader {
+        overflow: hidden;
+        margin: 0.5%;
+    }
+
+    .image-with-preloader {
         @include with-browser-prefixes(transform-origin, (center center));
         @include transition(
                 fit-with-browser-prefixes((
@@ -47,25 +62,51 @@
     }
 
     .image-with-preloader img {
-        width: 108%;
+        width: 100%;
     }
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .carousel-thumbs app-image-with-loader {
+        flex-basis: 32.33%;
+        &,
+        .img,
+        .image-with-preloader {
+            max-height: 32.33vh;
+        }
+        .image-with-preloader .img {width: 21px; height: 21px;}
+    }
+}
+
 
 @media (min-width: 320px) and (max-width: 767px) and (orientation: portrait)  {
-    .carousel-thumbs .image-with-preloader {
-        flex-basis: 89%;
-        max-width: 89%;
+    .carousel-thumbs app-image-with-loader {
+        flex-basis: 100%;
+        margin-bottom: 1%;
+        .image-with-preloader {
+            max-height: 100%;
+        }
     }
 }
 
-@media (min-width: 320px) and (max-width: 767px) and (orientation: landscape)  {
-    .carousel-thumbs .image-with-preloader {
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .carousel-thumbs app-image-with-loader {
         flex-basis: 32.33%;
+        &,
+        .image-with-preloader {
+            max-height: 34vh;
+        }
     }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
-    .carousel-thumbs .image-with-preloader {
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    #portfolio .carousel-thumbs app-image-with-loader {
+        flex-basis: 32.33%;
+
+        img,
+        .image-with-preloader {
+            width: 32.33vh;
+        }
     }
 }
 

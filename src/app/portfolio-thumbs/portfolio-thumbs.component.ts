@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, QueryList, ViewChildren, ElementRef} from '@angular/core';
 import {PortfolioServiceService} from '../portfolio-service.service';
 import {log} from 'fjl';
 
@@ -8,7 +8,7 @@ import {log} from 'fjl';
     styleUrls: ['./portfolio-thumbs.component.scss']
 })
 export class PortfolioThumbsComponent implements OnInit {
-
+    @ViewChildren('imageWithLoader', {read: ElementRef}) childNodes: QueryList<ElementRef>;
     items: Array<Object> = [];
     readonly activeClassName = 'active';
     constructor(private portfolioService: PortfolioServiceService) {}
@@ -22,16 +22,13 @@ export class PortfolioThumbsComponent implements OnInit {
 
     onThumbClick (e, $item) {
         const {activeClassName, childNodes} = this,
-            elm = e.currentTarget;
+            elm = e.currentTarget.firstChild;
         if (elm.classList.contains(activeClassName)) {
             return;
         }
-        Array.from(elm.parentElement.childNodes) // move childnodes to component level
-            .forEach(x => {
-                if (x instanceof HTMLElement) {
-                    x.classList.remove(activeClassName)
-                }
-            });
+        childNodes.forEach(x => {
+            x.nativeElement.firstChild.classList.remove(activeClassName)
+        });
         elm.classList.add(activeClassName);
         console.log('Thumb clicked', $item);
     }
