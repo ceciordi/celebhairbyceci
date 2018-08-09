@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {assign, isNumber} from 'fjl';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 
@@ -8,20 +8,17 @@ import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
     styleUrls: ['./image-with-loader.component.scss']
 })
 export class ImageWithLoaderComponent implements OnInit {
+    private selfRef: ElementRef;
     @Input() dataSrc: string;
     private xhr = new XMLHttpRequest();
-    private defaultClassName = 'image-with-preloader';
-    readonly suppliedClassName;
     alt = 'Image description here';
-    className = '';
     src: SafeResourceUrl;
     loading = false;
     progress = 0;
     progressText = 'loading';
 
-    constructor(private sanitizer: DomSanitizer) {
-        this.className = this.className || this.defaultClassName;
-        this.suppliedClassName = this.className;
+    constructor(private sanitizer: DomSanitizer, private element: ElementRef) {
+        this.selfRef = element;
     }
 
     ngOnInit() {
@@ -38,7 +35,6 @@ export class ImageWithLoaderComponent implements OnInit {
         xhr.addEventListener('load', self.onLoad.bind(self));
         xhr.addEventListener('error', self.onError.bind(self));
         xhr.addEventListener('abort', self.onAbort.bind(self));
-        console.log(self.dataSrc);
         self.loadSrc(self.dataSrc);
     }
 
@@ -52,7 +48,7 @@ export class ImageWithLoaderComponent implements OnInit {
 
     onLoadStart () {
         this.progressText = '0%';
-        this.className += ' loading';
+        this.selfRef.nativeElement.classList.add('loading');
     }
 
     onProgress (e) {
@@ -66,7 +62,7 @@ export class ImageWithLoaderComponent implements OnInit {
     onLoad () {
         this.src = this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(this.xhr.response));
         this.loading = false;
-        this.className = this.suppliedClassName;
+        this.selfRef.nativeElement.classList.remove('loading');
     }
 
     onLoadEnd () {

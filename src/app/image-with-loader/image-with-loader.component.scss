@@ -1,6 +1,6 @@
 @import "../../scss/component-includes";
 
-.image-with-preloader {
+:host {
     position: relative;
     background: $color-7-3;
 
@@ -15,6 +15,7 @@
     img {
         position: relative;
         display: block;
+        width: 100%;
         z-index: 1;
     }
 

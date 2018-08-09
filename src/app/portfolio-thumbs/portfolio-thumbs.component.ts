@@ -27,7 +27,7 @@ export class PortfolioThumbsComponent implements OnInit {
             return;
         }
         childNodes.forEach(x => {
-            x.nativeElement.firstChild.classList.remove(activeClassName)
+            x.nativeElement.firstChild.classList.remove(activeClassName);
         });
         elm.classList.add(activeClassName);
         console.log('Thumb clicked', $item);

@@ -1,36 +1,20 @@
 @import "../../scss/component-includes";
 
+:host {
+    &,
+    app-image-with-loader {
+        @extend %pos-rel;
+    }
 
-app-portfolio-thumbs,
-app-image-with-loader,
-.carousel-thumbs {
-    @extend %pos-rel;
-}
-
-app-portfolio-thumbs {
-    display: block;
-    width: 100%;
-}
-
-.carousel-thumbs {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    height: auto;
     padding: 0 13px;
 
-    app-image-with-loader,
-    .image-with-preloader {
-        display: inline-block;
-        text-align: center;
-    }
-
     app-image-with-loader {
-        overflow: hidden;
-        margin: 0.5%;
-    }
-
-    .image-with-preloader {
         @include with-browser-prefixes(transform-origin, (center center));
         @include transition(
                 fit-with-browser-prefixes((
@@ -40,6 +24,10 @@ app-portfolio-thumbs {
                 ), (opacity transform filter))
         );
         //@include opacity(0.89);
+        display: inline-block;
+        margin-bottom: 1%;
+        text-align: center;
+        overflow: hidden;
         z-index: 1;
 
         &:hover,
@@ -60,63 +48,67 @@ app-portfolio-thumbs {
             filter: brightness(1.1) saturate(104%);
         }
     }
-
-    .image-with-preloader img {
-        width: 100%;
-    }
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
-    .carousel-thumbs app-image-with-loader {
-        flex-basis: 32.33%;
-        &,
-        .img,
-        .image-with-preloader {
-            max-height: 32.33vh;
-        }
-        .image-with-preloader .img {width: 21px; height: 21px;}
-    }
-}
-
-
-@media (min-width: 320px) and (max-width: 767px) and (orientation: portrait)  {
-    .carousel-thumbs app-image-with-loader {
+@media (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+    :host app-image-with-loader {
         flex-basis: 100%;
-        margin-bottom: 1%;
-        .image-with-preloader {
-            max-height: 100%;
-        }
+        margin: 1%;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+    :host app-image-with-loader {
+        flex-basis: 32.33%;
+        max-height: 48vh;
     }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    .carousel-thumbs app-image-with-loader {
+    :host app-image-with-loader {
         flex-basis: 32.33%;
-        &,
-        .image-with-preloader {
-            max-height: 34vh;
-        }
+        max-height: 31.33vh;
     }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-    #portfolio .carousel-thumbs app-image-with-loader {
+    :host app-image-with-loader {
         flex-basis: 32.33%;
-
-        img,
-        .image-with-preloader {
-            width: 32.33vh;
-        }
+        max-height: 21vh;
     }
 }
 
 @media (min-width: 1025px) and (max-width: 1439px) {
-    .carousel-thumbs .image-with-preloader {
+    :host app-image-with-loader {
+        flex-basis: 24.33%;
+        max-height: 34vh;
     }
 }
 
-@media (min-width: 1440px) and (max-width: 3840px) {
-    .carousel-thumbs .image-with-preloader {
+@media (min-width: 1025px) and (max-width: 1439px) and (orientation: portrait) {
+    :host app-image-with-loader {
+        flex-basis: 32.33%;
+        max-height: 21vh;
     }
 }
 
+@media (min-width: 1440px) {
+    :host app-image-with-loader {
+        flex-basis: 19.33%;
+        max-height: 34vh;
+    }
+}
+
+@media (min-width: 1440px) and (orientation: portrait) {
+    :host app-image-with-loader {
+        flex-basis: 19.33%;
+        max-height: 13vh;
+    }
+}
+
+@media (min-width: 1440px) and (orientation: landscape) {
+    :host app-image-with-loader {
+        flex-basis: 19.33%;
+        max-height: 32.33vh;
+    }
+}
