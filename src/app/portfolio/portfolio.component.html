@@ -2,10 +2,13 @@
                 class="global hidden-by-z-index"></app-bg-overlay>
 <app-portfolio-slide-show #slideShow
     class="hidden-by-z-index"
-    [activeImageIndex]="activeImageIndex"
+    [activeImageIndex]="activeImageItemIndex"
     [items]="slideShowImages"
-    (close)="closeSlideShow()"></app-portfolio-slide-show>
+    (close)="closeSlideShow()"
+    (nextslide)="nextSlide()"
+    (prevslide)="prevSlide()"
+></app-portfolio-slide-show>
 <app-portfolio-thumbs
     [items]="thumbImages"
-    [activeImageIndex]="activeImageIndex"
+    [activeImageIndex]="activeImageItemIndex"
     (thumbclick)="openSlideShow($event)"></app-portfolio-thumbs>

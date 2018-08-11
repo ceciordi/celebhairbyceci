@@ -62,6 +62,7 @@ $carousel-max-height: 100vh;
         position: relative;
         box-shadow: 0 0 55px rgba(0, 0, 0, 0.34);
         background: #FFF;
+        max-height: 89vh;
         min-width: 34vw;
         z-index: $carousel-z-index + 1;
         @include transform(scale(1));
@@ -92,7 +93,7 @@ $carousel-max-height: 100vh;
 
 }
 
-@media only screen and(min-device-width: 320px) and (max-device-width: 767px)
+@media only screen and(min-width: 320px) and (max-width: 767px)
 and (orientation: portrait) {
     :host {
         .carousel-item img {
@@ -102,8 +103,8 @@ and (orientation: portrait) {
     }
 }
 
-@media (min-device-width: 768px) and (max-device-width: 3840px),
-(min-device-width: 320px) and (max-device-width: 767px) {
+@media (min-width: 768px) and (max-width: 3840px),
+(min-width: 320px) and (max-width: 767px) {
     :host {
         .carousel-item img {
             width: auto;

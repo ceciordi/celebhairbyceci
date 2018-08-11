@@ -2,6 +2,6 @@
     #imageWithLoader
     *ngFor="let item of items; index as ind"
     dataSrc="{{item.filePath}}"
-    [ngClass]="activeImageIndex === ind ? activeClassName : ''"
+    [ngClass]="activeImageItemIndex === ind ? activeClassName : ''"
     (click)="onThumbClick($event, item)"
 ></app-image-with-loader>
