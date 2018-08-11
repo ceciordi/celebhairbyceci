@@ -2369,9 +2369,9 @@ find-up@^3.0.0:
   dependencies:
     locate-path "^3.0.0"
 
-fjl@^1.3.1-next:
-  version "1.3.1-next"
-  resolved "https://registry.yarnpkg.com/fjl/-/fjl-1.3.1-next.tgz#cd6735c73dc0ae38e1ad18a8d14327c44245e280"
+fjl@^1.3.2-next:
+  version "1.3.2-next"
+  resolved "https://registry.yarnpkg.com/fjl/-/fjl-1.3.2-next.tgz#e1957d669f463afeb5229659f3a7d0808336fc5e"
 
 flush-write-stream@^1.0.0:
   version "1.0.3"

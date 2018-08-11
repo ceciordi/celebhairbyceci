@@ -10,7 +10,7 @@
 const
     fs = require('fs'),
     path = require('path'),
-    {log, error, assign, concat, peek} = require('fjl'),
+    {log, error, assign, concatMap, concat, peek} = require('fjl'),
     {ensureOutputPath, ioReadDirectory, ioStat, ioImageSize,
         ioDoesFilePathExists} = require('../utils/utils'),
     imageMagickStream = require('imagemagick-stream'),
@@ -78,9 +78,11 @@ const
             )
 
             // Concat results for each portfolio directory into one list of tuples
-            .then(dirTuplesList => concat(
-                dirTuplesList.map(([filePath, fileOutputPath, xs]) => xs)
-            ))
+            .then(dirTuplesList => concatMap(
+                    ([filePath, fileOutputPath, xs]) => xs,
+                    dirTuplesList
+                )
+            )
 
             // Run resize for each each image and image-configs set
             .then(reduceImageListTuples)
@@ -95,6 +97,8 @@ const
 
     toImagesAssocList = (fileInputPathPrefix, fileOutputPathPrefix, allowedImagesRegex, targetImageWidths) => {
         log(`\nGenerating images associated list for ${fileInputPathPrefix}...\n`);
+        log(`\nImages already processed will be skipped (if overwriting ` +
+            `is required pass in '-f' or '--force' when calling the script)\n`);
         return ioReadDirectory(fileInputPathPrefix).then(files => Promise.all(
             files.map(file => {
                 const fileInputPath = path.join(fileInputPathPrefix, file);
@@ -103,6 +107,8 @@ const
                         log(`\nSkipping: ${fileInputPath}`);
                         return Promise.resolve([fileInputPath, []]);
                     }
+
+                    log(`\nGenerating resize configs for "${fileInputPath}"`);
 
                     // Get image dimensions
                     return ioImageSize(fileInputPath)
@@ -125,20 +131,31 @@ const
                             }))
                       ])
                         // Check if image overwrites are required
-                        .then(([_, entries]) => !force ?
+                        .then(([_, entries]) => {
+                            //
+                            if (!force) {
+                                log (`Skipping: "${_}"`);
 
-                            // If overwrites are to be skipped filter `entries` by `newFilePath`s that do not exist
-                            [_, Promise.all(entries.map(entry =>
+                                // If overwrites are to be skipped filter `entries` by `newFilePath`s that do not exist
+                                return [_, Promise.all(entries.map(entry =>
                                     ioDoesFilePathExists(entry.newFilePath)
                                         .then(() => null)   // File path exists.  Mark it `null`/'should-be-skipped'
                                         .catch(() => entry) // File path doesn't exist.  Leave it marked for processing.
                                     ))
-                                .then(es => es.filter(Boolean)) // Filter for entries that should be included
-                            ] :
+                                    .then(_entries => _entries.filter(Boolean)) // Filter for entries that should be included
+                                ];
+                            }
+
+                            // Message user
+                            if (!entries.length) {
+                                log (`\nNo images matching extensions ${_allowedImagesRegex.toString()} for resize found for directory ${_}.\n`);
+                            } else {
+                                log (`\nAssociated image configs list generated for ${_}.\n`);
+                            }
 
                             // Else leave all config entries in `entries` list (overwrite/`--force` was requested)
-                            [_, Promise.resolve(entries)]
-                        )
+                            return [_, Promise.resolve(entries)];
+                        })
 
                         // Flip promises inside out;  I.e., `[String, Promise<Array>] -> Promise<[String, Array]>`
                         .then(([_, p]) => p.then(entries => [_, entries]))
