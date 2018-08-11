@@ -1,0 +1,21 @@
+[375, 812, ScreenType.Mobile, 377],
+[414, 736, ScreenType.Mobile, 377],
+[375, 667, ScreenType.Mobile, 377],
+[320, 480, ScreenType.Mobile],
+[320, 568, ScreenType.Mobile],
+[411, 731, ScreenType.Mobile],
+[480, 853, ScreenType.Mobile],
+[360, 740, ScreenType.Mobile],
+[360, 640, ScreenType.Mobile],
+
+// Tablet
+[1024, 1366, ScreenType.Tablet],
+[768, 1024, ScreenType.Tablet],
+[600, 960, ScreenType.Tablet],
+[800, 1280, ScreenType.Tablet],
+[1280, 850, ScreenType.Tablet],
+
+/*
+  If is touch and is touch found touch device then get meta
+  If not is touch device is a desktop device
+*/

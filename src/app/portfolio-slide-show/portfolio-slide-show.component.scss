@@ -1,0 +1,125 @@
+@import "../../scss/component-includes";
+$carousel-z-index: 99;
+$carousel-max-height: 100vh;
+
+:host {
+    @include transform(translateY(-3%));
+
+    &.active {
+        animation-name: carousel-in;
+        animation-duration: 1s;
+        @include transform(translateY(0));
+    }
+
+    &,
+    .carousel-scrollable-container,
+    .carousel-items,
+    .carousel-item {
+        position: relative;
+        @include transition(
+                fit-with-browser-prefixes((
+                    transform $ani-speed-3 ease-in-out,
+                    margin $ani-speed-3 ease-in-out,
+                ), (transform)
+                )
+        );
+    }
+
+    &.active.from-closed {
+        .carousel-items {
+            @include transition(fit-with-browser-prefixes((transform $ani-speed-8 ease-in-out,), (transform)));
+        }
+    }
+
+    .controls {
+        position: absolute;
+        display: inline-block;
+        right: 0;
+        margin: 13px;
+        z-index: $carousel-z-index + 9;
+
+        .close-btn {
+            line-height: 21px;
+            font-size: 21px;
+            box-shadow: 0 0 21px rgba(0,0,0,0.34);
+        }
+    }
+
+    .carousel-scrollable-container {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .carousel-items {
+        display: flex;
+        width: 9999px;
+        //justify-content: center;
+        align-items: center;
+        height: $carousel-max-height;
+    }
+
+    .carousel-item {
+        position: relative;
+        box-shadow: 0 0 55px rgba(0, 0, 0, 0.34);
+        background: #FFF;
+        min-width: 34vw;
+        z-index: $carousel-z-index + 1;
+        @include transform(scale(1));
+        @include with-browser-prefixes(transform-origin, (center center));
+
+        img {
+            display: block;
+            @include transition(fit-with-browser-prefixes((opacity $ani-speed-3 linear,), (opacity)));
+            @include opacity(0.55);
+        }
+        &.active img {
+            @include opacity(1);
+        }
+
+        &.active {
+            @include transform(scale(1.1));
+            z-index: $carousel-z-index + 2;
+            margin: 0 1.0rem;
+        }
+
+    }
+
+    app-portfolio-slide-show-arrow {
+        z-index: $carousel-z-index + 3;
+    }
+
+    @import "portfolio-slide-show-arrow";
+
+}
+
+@media only screen and(min-device-width: 320px) and (max-device-width: 767px)
+and (orientation: portrait) {
+    :host {
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+@media (min-device-width: 768px) and (max-device-width: 3840px),
+(min-device-width: 320px) and (max-device-width: 767px) {
+    :host {
+        .carousel-item img {
+            width: auto;
+            height: 72vh;
+        }
+    }
+}
+
+@keyframes carousel-in {
+    from {
+        @include opacity(0);
+        @include transform(translateY(-5%));
+    }
+    to {
+        @include opacity(1);
+        @include transform(translateY(0));
+    }
+}
+

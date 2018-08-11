@@ -1,3 +1,19 @@
-<p>
-  portfolio-slide-show works!
-</p>
+<div class="carousel-scrollable-container">
+    <div class="controls">
+        <a class="close-btn btn" (click)="closeSlideShow($event)">&#10005;</a>
+    </div>
+    <div class="carousel-items">
+        <app-image-with-loader
+            #imageWithLoader
+            *ngFor="let item of items"
+            dataSrc="{{item.filePath}}"
+            class="carousel-item"
+        ></app-image-with-loader>
+    </div>
+    <app-portfolio-slide-show-arrow
+        direction="left" class="arrow-btn-left"
+    ></app-portfolio-slide-show-arrow>
+    <app-portfolio-slide-show-arrow
+        direction="right" class="arrow-btn-right"
+    ></app-portfolio-slide-show-arrow>
+</div>

@@ -8,6 +8,8 @@ import {PortfolioSlideShowComponent} from './portfolio-slide-show/portfolio-slid
 import {PortfolioThumbsComponent} from './portfolio-thumbs/portfolio-thumbs.component';
 import { ImageWithLoaderComponent } from './image-with-loader/image-with-loader.component';
 import {HttpClientModule} from '@angular/common/http';
+import {PortfolioSlideShowArrowComponent} from './portfolio-slide-show-arrow/portfolio-slide-show-arrow.component';
+import { BgOverlayComponent } from './bg-overlay/bg-overlay.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import {HttpClientModule} from '@angular/common/http';
     PortfolioComponent,
     PortfolioSlideShowComponent,
     PortfolioThumbsComponent,
-    ImageWithLoaderComponent
+    ImageWithLoaderComponent,
+    PortfolioSlideShowArrowComponent,
+    BgOverlayComponent
   ],
   imports: [
     BrowserModule,

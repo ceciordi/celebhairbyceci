@@ -1,0 +1,17 @@
+app-portfolio-slide-show-arrow,
+app-portfolio-slide-show-arrow svg {
+    position: absolute;
+}
+
+app-portfolio-slide-show-arrow {
+    top: 50%;
+    @include transform(translateY(-50%) scale(0.55, 0.55));
+}
+
+.arrow-btn-left {
+    left: -13px;
+}
+
+.arrow-btn-right {
+    right: -13px;
+}

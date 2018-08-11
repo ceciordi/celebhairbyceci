@@ -1,6 +1,5 @@
-import {Component, OnInit, QueryList, ViewChildren, ElementRef} from '@angular/core';
-import {PortfolioServiceService} from '../portfolio-service.service';
-import {log} from 'fjl';
+import {Component, OnInit, QueryList, ViewChildren, ElementRef, Input, Output, EventEmitter} from '@angular/core';
+import {log, findIndex} from 'fjl';
 
 @Component({
     selector: 'app-portfolio-thumbs',
@@ -9,28 +8,28 @@ import {log} from 'fjl';
 })
 export class PortfolioThumbsComponent implements OnInit {
     @ViewChildren('imageWithLoader', {read: ElementRef}) childNodes: QueryList<ElementRef>;
-    items: Array<Object> = [];
-    readonly activeClassName = 'active';
-    constructor(private portfolioService: PortfolioServiceService) {}
+    @Input() items: Array<Object> = [];
+    @Input() activeImageIndex: number;
+    @Input() activeClassName = 'active';
+    @Output() thumbclick = new EventEmitter<any>();
+    constructor() {}
 
-    ngOnInit() {
-        this.portfolioService.fetchImages()
-            .then(imagesBySize => {
-                this.items = imagesBySize[377];
-            });
-    }
+    ngOnInit() {}
 
     onThumbClick (e, $item) {
         const {activeClassName, childNodes} = this,
-            elm = e.currentTarget.firstChild;
+            elm = e.currentTarget,
+            {filePath} = $item,
+            imgIndex = findIndex(x => x && x.filePath === filePath, this.items),
+            detail = {index: imgIndex};
         if (elm.classList.contains(activeClassName)) {
             return;
         }
         childNodes.forEach(x => {
-            x.nativeElement.firstChild.classList.remove(activeClassName);
+            x.nativeElement.classList.remove(activeClassName);
         });
         elm.classList.add(activeClassName);
-        console.log('Thumb clicked', $item);
+        this.thumbclick.emit(detail);
     }
 
 }
