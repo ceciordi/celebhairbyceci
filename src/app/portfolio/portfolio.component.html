@@ -1,5 +1,6 @@
 <app-bg-overlay #bgOverlay
                 class="global hidden-by-z-index"
+                (click)="closeSlideShow()"
                 (transitionend)="onOverlayTransitionEnd($event)"
 ></app-bg-overlay>
 <app-portfolio-slide-show #slideShow

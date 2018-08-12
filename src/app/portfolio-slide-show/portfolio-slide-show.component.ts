@@ -116,4 +116,11 @@ export class PortfolioSlideShowComponent implements OnInit, OnChanges {
         this.gotoslide.emit(ind);
     }
 
+    onCarouselItemsClick (e) {
+        // If '.carousel-items' itself was click,
+        //  close slide show
+        if (e.target === e.currentTarget) {
+            this.closeSlideShow();
+        }
+    }
 }

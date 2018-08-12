@@ -48,7 +48,6 @@ export class PortfolioComponent implements OnInit {
                         imagesBySize[slideShowImageSize];
             })
             .catch(error);
-
     }
 
     openSlideShow ({index}) {
