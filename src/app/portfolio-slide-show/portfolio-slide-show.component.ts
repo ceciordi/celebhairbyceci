@@ -61,6 +61,18 @@ export class PortfolioSlideShowComponent implements OnInit, OnChanges {
                 .pipe(resizeDebounceTime)
                 .subscribe(resizeHandler);
         }
+
+        fromEvent(window, 'scroll')
+            .pipe(resizeDebounceTime)
+            .subscribe(() => {
+                this.childNodes.forEach(x => {
+                    const elm = x.nativeElement;
+                    if (elm.dataset.loaded) {
+                        return;
+                    }
+                    // elm.offsetTop
+                });
+            });
     }
 
     ngOnChanges (changes: SimpleChanges) {

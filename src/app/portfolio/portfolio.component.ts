@@ -26,18 +26,8 @@ export class PortfolioComponent implements OnInit {
     slideShowImages: object[] = [];
     constructor(private portfolioService: PortfolioServiceService) {
         this.slideShowImageSize = last(portfolioService.sizes);
-        const escapeKeyName = 'escape';
-
-        fromEvent(window, 'keyup')
-            .subscribe((e: KeyboardEvent) => {
-                if (e.key.toLowerCase() === escapeKeyName) {
-                    this.closeSlideShow();
-                }
-            });
-    }
-
-    ngOnInit() {
-        const {thumbImageSize, slideShowImageSize} = this;
+        const {thumbImageSize, slideShowImageSize} = this,
+            escapeKeyName = 'escape';
 
         // Set thumb and slide images as well as `slides paginator.items`
         this.portfolioService.fetchImages()
@@ -48,6 +38,17 @@ export class PortfolioComponent implements OnInit {
                         imagesBySize[slideShowImageSize];
             })
             .catch(error);
+
+        fromEvent(window, 'keyup')
+            .subscribe((e: KeyboardEvent) => {
+                if (e.key.toLowerCase() === escapeKeyName) {
+                    this.closeSlideShow();
+                }
+            });
+    }
+
+    ngOnInit() {
+
     }
 
     openSlideShow ({index}) {
