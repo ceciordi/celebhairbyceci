@@ -4,6 +4,7 @@ import {error, findIndex, noop, log, assign, last, compose, forEach} from 'fjl';
 import {fromEvent} from 'rxjs';
 import StaticPaginator from '../utils/StaticPaginator';
 import {hasClass, addClass, removeClass} from '../utils/classList-helpers';
+import {debounceTime} from 'rxjs/operators';
 
 @Component({
     selector: 'app-portfolio',

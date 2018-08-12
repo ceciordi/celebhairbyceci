@@ -11,8 +11,10 @@ import {
     ViewChild,
     ViewChildren
 } from '@angular/core';
-import {findIndex, isset} from 'fjl';
+import {findIndex, isset, forEach} from 'fjl';
 import {fromEvent} from 'rxjs';
+import {addClass, removeClass} from '../utils/classList-helpers';
+import {debounceTime} from 'rxjs/operators';
 
 @Component({
   selector: 'app-portfolio-slide-show',
@@ -42,14 +44,31 @@ export class PortfolioSlideShowComponent implements OnInit, OnChanges {
                     }
                     this.selftransitionend.emit(e);
                 });
+
+        const resizeDebounceTime = debounceTime(300),
+            resizeHandler = () => {
+                this.gotoSlide(this.activeImageIndex);
+            };
+
+        // Handle resize
+        fromEvent(window, 'resize')
+            .pipe(resizeDebounceTime)
+            .subscribe(resizeHandler);
+
+        // Handle orientation change
+        if (window.onorientationchange) {
+            fromEvent(window, 'orientationchange')
+                .pipe(resizeDebounceTime)
+                .subscribe(resizeHandler);
+        }
     }
 
     ngOnChanges (changes: SimpleChanges) {
         if (!isset(changes.activeImageIndex)) {
             return;
         }
-        const {currentValue, previousValue, firstChange} = changes.activeImageIndex;
-        if (currentValue === previousValue || firstChange) {
+        const {currentValue, firstChange} = changes.activeImageIndex;
+        if (firstChange) {
             return;
         }
         this.gotoSlide(currentValue);
@@ -80,9 +99,9 @@ export class PortfolioSlideShowComponent implements OnInit, OnChanges {
     }
 
     setActiveSlideElm (elm) {
-        const {activeClassName} = this;
-        this.childNodes.forEach(x => x.nativeElement.classList.remove(activeClassName));
-        elm.classList.add(activeClassName);
+        const {activeClassName, childNodes} = this;
+        childNodes.forEach(removeClass(activeClassName));
+        addClass(activeClassName, elm);
     }
 
     closeSlideShow () {
