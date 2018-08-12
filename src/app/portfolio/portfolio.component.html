@@ -1,5 +1,7 @@
 <app-bg-overlay #bgOverlay
-                class="global hidden-by-z-index"></app-bg-overlay>
+                class="global hidden-by-z-index"
+                (transitionend)="onOverlayTransitionEnd($event)"
+></app-bg-overlay>
 <app-portfolio-slide-show #slideShow
     class="hidden-by-z-index"
     [activeImageIndex]="activeImageItemIndex"
@@ -7,6 +9,8 @@
     (close)="closeSlideShow()"
     (nextslide)="nextSlide()"
     (prevslide)="prevSlide()"
+    (gotoslide)="gotoSlide($event)"
+    (selftransitionend)="onOverlayTransitionEnd($event)"
 ></app-portfolio-slide-show>
 <app-portfolio-thumbs
     [items]="thumbImages"

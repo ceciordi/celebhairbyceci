@@ -12,7 +12,7 @@ export default class StaticPaginator {
     pagesLength: Num;
     items: Array<any> = [];
     autoWrap = true;
-    autoUpdatePageNum = true;
+    autoUpdatePageNumber = true;
     onGotoPage = noop;
     onGotoItem = noop;
     readonly firstItemIndexOnPage;
@@ -29,7 +29,8 @@ export default class StaticPaginator {
                     return _pageNumber;
                 },
                 set (x: Num) {
-                    _pageNumber = resolvePointer(this.autoWrap, 0, this.pagesLength, x);
+                    const _pagesLength = this.pagesLength;
+                    _pageNumber = resolvePointer(this.autoWrap, 0, !_pagesLength ? 0 : _pagesLength - 1, x);
                 },
                 enumerable
             },
@@ -38,7 +39,7 @@ export default class StaticPaginator {
                     return _itemNumber;
                 },
                 set (x: Num) {
-                    _itemNumber = resolvePointer(this.autoWrap, 0, this.itemsLength, x);
+                    _itemNumber = resolvePointer(this.autoWrap, 0, !this.itemsLength ? 0 :  this.itemsLength - 1, x);
                 },
                 enumerable
             },
@@ -86,7 +87,7 @@ export default class StaticPaginator {
     gotoItem (index) {
         if (!this.itemsLength) { return this; }
         this.itemNumber = index;
-        if (this.autoUpdatePageNum) {
+        if (this.autoUpdatePageNumber) {
             this.pageNumber = this.getPageNumberByItemIndex(this.itemNumber);
         }
         this.onGotoItem.call(this, this.itemNumber);

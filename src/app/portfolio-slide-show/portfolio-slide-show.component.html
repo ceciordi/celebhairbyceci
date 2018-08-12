@@ -8,6 +8,7 @@
             *ngFor="let item of items"
             dataSrc="{{item.filePath}}"
             class="carousel-item"
+            (imageWithPreloaderClick)="onSlideClick($event)"
         ></app-image-with-loader>
     </div>
     <app-portfolio-slide-show-arrow

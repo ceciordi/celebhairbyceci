@@ -1,6 +1,7 @@
-import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {assign, isNumber} from 'fjl';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
+import {fromEvent} from 'rxjs';
 
 @Component({
     selector: 'app-image-with-loader',
@@ -16,6 +17,7 @@ export class ImageWithLoaderComponent implements OnInit {
     loading = false;
     progress = 0;
     progressText = 'loading';
+    @Output() imageWithPreloaderClick = new EventEmitter<object>();
 
     constructor(private sanitizer: DomSanitizer, private element: ElementRef) {
         this.selfRef = element;
@@ -23,6 +25,14 @@ export class ImageWithLoaderComponent implements OnInit {
 
     ngOnInit() {
         this.initXHR();
+        fromEvent(this.selfRef.nativeElement, 'click')
+            .subscribe(() => {
+                this.imageWithPreloaderClick.emit({
+                    detail: {
+                        dataSrc: this.dataSrc
+                    }
+                });
+            });
     }
 
     initXHR () {
@@ -52,7 +62,7 @@ export class ImageWithLoaderComponent implements OnInit {
     }
 
     onProgress (e) {
-        if (e.lengthComputable) {
+        if (e && e.lengthComputable) {
             const expectedProgress = e.loaded / e.total,
                 progress = isNumber(expectedProgress) ? expectedProgress : 0;
             this.progressText = Math.round((progress * 100)) + '%';

@@ -1,8 +1,9 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {PortfolioServiceService} from '../portfolio-service.service';
-import {error, findIndex, noop, log, assign} from 'fjl';
+import {error, findIndex, noop, log, assign, last, compose, forEach} from 'fjl';
 import {fromEvent} from 'rxjs';
 import StaticPaginator from '../utils/StaticPaginator';
+import {hasClass, addClass, removeClass} from '../utils/classList-helpers';
 
 @Component({
     selector: 'app-portfolio',
@@ -12,25 +13,30 @@ import StaticPaginator from '../utils/StaticPaginator';
 export class PortfolioComponent implements OnInit {
     @ViewChild('slideShow', {read: ElementRef}) slideShow: ElementRef;
     @ViewChild('bgOverlay', {read: ElementRef}) bgOverlay: ElementRef;
-    private portfolioImageSize = [55, 89, 144, 233, 377, 610, 987];
-    private slideShowImageSize = 1587;
+    private slideShowImageSize = 1597;
     private thumbImageSize = 377;
-    private slidesPaginator = new StaticPaginator();
+    private slidesPaginator = new StaticPaginator({
+        autoUpdatePageNumber: false
+    }); // slides pagination math and triggering handed off to this component
     activeClassName = 'active';
     hiddenByClassName = 'hidden-by-z-index';
     activeImageItemIndex = 0;
     thumbImages: object[] = [];
     slideShowImages: object[] = [];
     constructor(private portfolioService: PortfolioServiceService) {
-        assign(this.slidesPaginator, {
-            onGotoItem: ind => (log(ind), this.gotoSlide(ind)),
-            onGotoPage: ind => (log(ind), this.gotoSlide(ind))
-        });
+        this.slideShowImageSize = last(portfolioService.sizes);
+        const escapeKeyName = 'escape';
+
+        fromEvent(window, 'keyup')
+            .subscribe((e: KeyboardEvent) => {
+                if (e.key.toLowerCase() === escapeKeyName) {
+                    this.closeSlideShow();
+                }
+            });
     }
 
     ngOnInit() {
-        const {thumbImageSize, slideShowImageSize} = this,
-            escapeKeyName = 'escape';
+        const {thumbImageSize, slideShowImageSize} = this;
 
         // Set thumb and slide images as well as `slides paginator.items`
         this.portfolioService.fetchImages()
@@ -42,58 +48,64 @@ export class PortfolioComponent implements OnInit {
             })
             .catch(error);
 
-        fromEvent(window, 'keyup')
-            .subscribe((e: KeyboardEvent) => {
-                if (e.key.toLowerCase() === escapeKeyName) {
-                    this.closeSlideShow();
-                }
-            });
     }
 
-    openSlideShow (detail) {
-        const {classList: slideShowClassList} = this.slideShow.nativeElement,
-            {classList: bgOverlayClassList} = this.bgOverlay.nativeElement,
-            {activeClassName, hiddenByClassName} = this,
-            {index} = detail;
-        // this.activeImageItemIndex = index;
-        this.slidesPaginator.gotoItem(index);
-        if (slideShowClassList.contains(activeClassName)) {
+    openSlideShow ({index}) {
+        const {activeClassName, hiddenByClassName,
+                bgOverlay, slideShow} = this;
+        this.gotoSlide(index);
+        if (hasClass(activeClassName, slideShow)) {
             return;
         }
-        slideShowClassList.remove(hiddenByClassName);
-        bgOverlayClassList.remove(hiddenByClassName);
-        slideShowClassList.add(activeClassName);
-        bgOverlayClassList.add(activeClassName);
+        forEach(compose(
+            addClass(activeClassName),
+            removeClass(hiddenByClassName)
+            ), [bgOverlay, slideShow]);
     }
 
     closeSlideShow () {
-        const {classList: slideShowClassList} = this.slideShow.nativeElement,
-            {classList: bgOverlayClassList} = this.bgOverlay.nativeElement,
-            {activeClassName, hiddenByClassName} = this;
-        slideShowClassList.remove(activeClassName);
-        bgOverlayClassList.remove(activeClassName);
-        slideShowClassList.add(hiddenByClassName);
-        bgOverlayClassList.add(hiddenByClassName);
-    }
-
-    setActiveThumbByIndex (ind) {
-    }
-
-    setActiveSlideByIndex (ind) {
-        this.slidesPaginator.gotoItem(ind);
+        const {activeClassName, bgOverlay, slideShow} = this;
+        forEach(removeClass(activeClassName), [bgOverlay, slideShow]);
     }
 
     nextSlide () {
         this.slidesPaginator.nextItem();
+        this.activeImageItemIndex =
+            this.slidesPaginator.itemNumber
+        ;
     }
 
     prevSlide () {
         this.slidesPaginator.prevItem();
+        this.activeImageItemIndex =
+            this.slidesPaginator.itemNumber
+        ;
     }
 
     gotoSlide (ind) {
-        log ('Going to slide num:', ind);
-        this.activeImageItemIndex = ind;
+        this.activeImageItemIndex =
+            this.slidesPaginator
+                .gotoItem(ind)
+                .itemNumber
+        ;
+    }
+
+    /**
+     * Handle transition end for 'bg-overlay' and 'slide-show' components
+     *  (pretty much just toggling some classes when transition end happens)
+     * @param e {TransitionEvent}
+     */
+    onOverlayTransitionEnd (e) {
+        const {slideShow, bgOverlay, activeClassName, hiddenByClassName} = this;
+        if (e.currentTarget.nodeName.toLowerCase() === 'app-image-with-loader') {
+            return;
+        }
+        if (!hasClass(activeClassName, slideShow)) {
+            forEach(addClass([hiddenByClassName, 'from-closed']),
+                [bgOverlay, slideShow]);
+        } else {
+            removeClass('from-closed', slideShow);
+        }
     }
 
 }

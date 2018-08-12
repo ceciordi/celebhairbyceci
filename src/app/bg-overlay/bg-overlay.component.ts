@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {fromEvent} from 'rxjs';
 
 @Component({
   selector: 'app-bg-overlay',
@@ -9,7 +10,6 @@ export class BgOverlayComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

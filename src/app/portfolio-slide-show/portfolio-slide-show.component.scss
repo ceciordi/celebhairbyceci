@@ -3,7 +3,14 @@ $carousel-z-index: 99;
 $carousel-max-height: 100vh;
 
 :host {
-    @include transform(translateY(-3%));
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    > *,
+    .carousel-item {
+        position: relative;
+    }
 
     &.active {
         animation-name: carousel-in;
@@ -14,12 +21,14 @@ $carousel-max-height: 100vh;
     &,
     .carousel-scrollable-container,
     .carousel-items,
-    .carousel-item {
-        position: relative;
+    .carousel-item,
+    .carousel-item img {
         @include transition(
                 fit-with-browser-prefixes((
                     transform $ani-speed-3 ease-in-out,
                     margin $ani-speed-3 ease-in-out,
+                    box-shadow $ani-speed-3 ease-in-out,
+                    opacity $ani-speed-3 ease-in-out,
                 ), (transform)
                 )
         );
@@ -27,7 +36,12 @@ $carousel-max-height: 100vh;
 
     &.active.from-closed {
         .carousel-items {
-            @include transition(fit-with-browser-prefixes((transform $ani-speed-8 ease-in-out,), (transform)));
+            @include transition(fit-with-browser-prefixes((
+                transform $ani-speed-8 ease-in-out,
+                margin $ani-speed-8 ease-in-out,
+                box-shadow $ani-speed-8 ease-in-out,
+                opacity $ani-speed-8 ease-in-out,
+            ), (transform)));
         }
     }
 
@@ -48,24 +62,26 @@ $carousel-max-height: 100vh;
     .carousel-scrollable-container {
         width: 100%;
         overflow: hidden;
+        height: $carousel-max-height;
     }
 
     .carousel-items {
         display: flex;
         width: 9999px;
-        //justify-content: center;
+        justify-content: space-between;
         align-items: center;
         height: $carousel-max-height;
     }
 
     .carousel-item {
-        position: relative;
         box-shadow: 0 0 55px rgba(0, 0, 0, 0.34);
         background: #FFF;
+        flex-basis: 34vw;
         max-height: 89vh;
         min-width: 34vw;
+        overflow: hidden;
         z-index: $carousel-z-index + 1;
-        @include transform(scale(1));
+        @include transform(scale(0.89));
         @include with-browser-prefixes(transform-origin, (center center));
 
         img {
@@ -81,6 +97,8 @@ $carousel-max-height: 100vh;
             @include transform(scale(1.1));
             z-index: $carousel-z-index + 2;
             margin: 0 1.0rem;
+            box-shadow: 0 0 144px rgba(0, 0, 0, 0.13);
+            @include opacity(1);
         }
 
     }
@@ -93,22 +111,35 @@ $carousel-max-height: 100vh;
 
 }
 
-@media only screen and(min-width: 320px) and (max-width: 767px)
+@media (min-width: 320px) and (max-width: 767px)
 and (orientation: portrait) {
-    :host {
-        .carousel-item img {
+    :host .carousel-items .carousel-item {
+        min-width: 55vw;
+        img {
             width: 100%;
             height: auto;
         }
     }
 }
 
-@media (min-width: 768px) and (max-width: 3840px),
-(min-width: 320px) and (max-width: 767px) {
-    :host {
-        .carousel-item img {
+@media (min-width: 768px) and (max-width: 1024px)
+ {
+    :host .carousel-items .carousel-item {
+        min-width: 55vw;
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 3840px) {
+    :host .carousel-items .carousel-item {
+        min-width: 34vw;
+
+        img {
             width: auto;
-            height: 72vh;
+            max-height: 72vh;
         }
     }
 }

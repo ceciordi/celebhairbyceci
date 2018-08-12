@@ -1,7 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
 import {keys, error} from 'fjl';
-import {catchError, tap} from 'rxjs/operators';
 
 const
 
@@ -30,7 +28,7 @@ export class PortfolioServiceService {
     private imagesBySizes: object = {};
     private fetchImagesIo: Promise<object>;
     endpointUrl = '/assets/json/portfolios-data.json';
-    sizes = [55, 89, 233, 377, 610, 987];
+    sizes = [55, 89, 233, 377, 610, 987]; // , 1597];
 
     constructor() {}
 

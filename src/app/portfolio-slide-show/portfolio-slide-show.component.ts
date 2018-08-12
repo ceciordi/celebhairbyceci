@@ -11,7 +11,8 @@ import {
     ViewChild,
     ViewChildren
 } from '@angular/core';
-import {isset} from 'fjl';
+import {findIndex, isset} from 'fjl';
+import {fromEvent} from 'rxjs';
 
 @Component({
   selector: 'app-portfolio-slide-show',
@@ -28,9 +29,20 @@ export class PortfolioSlideShowComponent implements OnInit, OnChanges {
     @Output() close = new EventEmitter<any>();
     @Output() nextslide = new EventEmitter<any>();
     @Output() prevslide = new EventEmitter<any>();
+    @Output() gotoslide = new EventEmitter<Num>();
+    @Output() selftransitionend = new EventEmitter<any>();
     constructor() {}
 
-    ngOnInit() {}
+    ngOnInit() {
+        fromEvent(this.carouselItems.nativeElement, 'transitionend')
+            .subscribe((e: TransitionEvent) => {
+                const elm = e.currentTarget as HTMLElement;
+                    if (!elm.classList.contains('carousel-items')) {
+                        return;
+                    }
+                    this.selftransitionend.emit(e);
+                });
+    }
 
     ngOnChanges (changes: SimpleChanges) {
         if (!isset(changes.activeImageIndex)) {
@@ -75,6 +87,14 @@ export class PortfolioSlideShowComponent implements OnInit, OnChanges {
 
     closeSlideShow () {
         this.close.emit(null);
+    }
+
+    onSlideClick ({detail: {dataSrc}}) {
+        const ind = findIndex(x => x.filePath === dataSrc, this.items);
+        if (!isset(ind)) {
+            return;
+        }
+        this.gotoslide.emit(ind);
     }
 
 }

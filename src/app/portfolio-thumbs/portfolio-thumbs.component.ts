@@ -28,9 +28,10 @@ export class PortfolioThumbsComponent implements OnInit, OnChanges {
     }
 
     setActiveThumbByIndex (ind) {
-        this.setActiveThumb(
-            this.childNodes.find((x, i) => i === ind).nativeElement
-        );
+        const elmRef = this.childNodes.find((x, i) => i === ind);
+        if (elmRef) {
+            this.setActiveThumb(elmRef.nativeElement);
+        }
     }
 
     setActiveThumb (thumbElm) {

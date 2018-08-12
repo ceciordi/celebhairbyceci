@@ -19,7 +19,7 @@ const
     // Options
     _subPortfolioSuffix = '', // sub folder where actual images are kept (default blank)
     _allowedImagesRegex = /\.(jpg|jpeg|png|tif|tiff)$/i,
-    _targetImageWidths = rpiUtils.fib(89, 1000),
+    _targetImageWidths = rpiUtils.fib(89, 2560),
 
     _defaultOptions = {
         inputPathPrefix: '',
@@ -170,12 +170,14 @@ const
             // Chain all image sets together to only allow
             //  one `read stream` to be loaded per image set
             return prevPromise.then(() => {
+                log (`\nPerforming resizes for ${originalFilePath}...`);
                 const readStream = fs.createReadStream(path.resolve(originalFilePath));
                 return Promise.all(
                     imageConfigs.map(c => new Promise((resolve, reject) => {
                         const {newWidth, newHeight, newFilePath} = c,
+                            resolvedNewFilePath = path.resolve(newFilePath),
                             resize = imageMagickStream().resize(newWidth + 'x' + newHeight),
-                            writeStream = fs.createWriteStream(path.resolve(newFilePath));
+                            writeStream = fs.createWriteStream(resolvedNewFilePath);
 
                         // Resize image
                         readStream
@@ -185,16 +187,21 @@ const
                             .on('finish', err => {
                                 const out = {};
                                 if (err) {
-                                    log(err);
+                                    log(`\nFile generation failed for file ${resolvedNewFilePath}. ${err}`);
                                     out.failed = true;
                                     out.error = err;
                                 }
+                                log(`\nFile generated successfully: ${resolvedNewFilePath}`);
                                 resolve({...c, ...out});
                             });
                     }))
                 );
             });
         }, Promise.resolve())
+            .then(() => {
+                log('\nResize processing completed.\n');
+            })
+            .catch(error)
 
 ;
 
