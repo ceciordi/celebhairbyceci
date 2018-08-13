@@ -1,4 +1,5 @@
 import {
+    AfterContentInit,
     Component,
     ElementRef,
     EventEmitter,
@@ -16,17 +17,17 @@ import {fromEvent} from 'rxjs';
 import {addClass, removeClass} from '../utils/classList-helpers';
 import {debounceTime} from 'rxjs/operators';
 import {getDocumentTopScrollable} from '../utils/dom-helpers';
-
+import {assign} from 'fjl';
 @Component({
   selector: 'app-portfolio-slide-show',
   templateUrl: './portfolio-slide-show.component.html',
   styleUrls: ['./portfolio-slide-show.component.scss']
 })
-export class PortfolioSlideShowComponent implements OnInit, OnChanges {
+export class PortfolioSlideShowComponent implements OnInit, OnChanges, AfterContentInit {
     @ViewChild('carouselContainer', {read: ElementRef}) carouselContainer: ElementRef;
     @ViewChild('carouselItems', {read: ElementRef}) carouselItems: ElementRef;
-    @ViewChildren('imageWithLoader', {read: ElementRef}) childNodes: QueryList<ElementRef>;
-    @Input() items: Array<Object> = [];
+    @ViewChildren('imageWithLoader', {read: ElementRef}) childNodes: QueryList<ElementRef> = new QueryList();
+    @Input() items: Array<ImageWithLoaderModel> = [];
     @Input() activeImageIndex = 0;
     @Input() activeClassName = 'active';
     @Output() close = new EventEmitter<any>();
@@ -35,15 +36,14 @@ export class PortfolioSlideShowComponent implements OnInit, OnChanges {
     @Output() gotoslide = new EventEmitter<Num>();
     @Output() selftransitionend = new EventEmitter<any>();
     imageRefsAwaitingLoad: Array<ElementRef>;
+    docScrollableElm: Element = getDocumentTopScrollable(window);
     constructor() {}
 
     ngOnInit() {
         const resizeDebounceTime = debounceTime(300),
             resizeHandler = () => {
                 this.gotoSlide(this.activeImageIndex);
-            },
-            loadPred = x => x.nativeElement.dataset.loaded,
-            docScrollableElm = getDocumentTopScrollable(window);
+            };
 
         fromEvent(this.carouselItems.nativeElement, 'transitionend')
             .subscribe((e: TransitionEvent) => {
@@ -66,28 +66,9 @@ export class PortfolioSlideShowComponent implements OnInit, OnChanges {
                 .subscribe(resizeHandler);
         }
 
-        this.imageRefsAwaitingLoad = this.childNodes.filter(loadPred);
-
         fromEvent(window, 'scroll')
             .pipe(resizeDebounceTime)
-            .subscribe(() => {
-                const {innerWidth: wInnerWidth, innerHeight: wInnerHeight} = window,
-                    {scrollLeft: topScrollLeft, scrollTop: topScrollTop} = docScrollableElm;
-
-                this.imageRefsAwaitingLoad.filter(x => {
-                    if (x.nativeElement.dataset.loaded) {
-                        return false;
-                    }
-                    const elm = x.nativeElement,
-                        {offsetWidth, offsetTop, offsetLeft, offsetHeight} = elm,
-                        elmPosPlusSpaceLeft = offsetLeft + offsetWidth,
-                        elmPosPlusSpaceTop = offsetTop + offsetHeight;
-
-                    // elmPosPlusSpaceLeft > topScrollLeft - (elmPosPlusSpaceLeft + (elmPosPlusSpaceLeft / 2)) ||
-                    // elmPosPlusSpaceTop > topScrollTop - (elmPosPlusSpaceTop + (elmPosPlusSpaceTop / 2))
-                    return true;
-                });
-            });
+            .subscribe(this.loadTriggerCheck.bind(this));
     }
 
     ngOnChanges (changes: SimpleChanges) {
@@ -99,6 +80,11 @@ export class PortfolioSlideShowComponent implements OnInit, OnChanges {
             return;
         }
         this.gotoSlide(currentValue);
+    }
+
+    ngAfterContentInit () {
+        const loadPred = x => x.nativeElement.dataset.loaded;
+            this.imageRefsAwaitingLoad = this.childNodes.filter(loadPred);
     }
 
     nextSlide () {
@@ -151,7 +137,32 @@ export class PortfolioSlideShowComponent implements OnInit, OnChanges {
         }
     }
 
-    addEventListeners () {
+    loadTriggerCheck () {
+        const {innerWidth: wInnerWidth, innerHeight: wInnerHeight} = window,
+            {scrollLeft: topScrollLeft, scrollTop: topScrollTop} = this.docScrollableElm;
+        this.childNodes.forEach((x, ind) => {
+            if (x.nativeElement.dataset.loaded) {
+                return false;
+            }
+            const elm = x.nativeElement,
+                {offsetWidth, offsetTop, offsetLeft, offsetHeight} = elm,
+                elmPosPlusSpaceLeft = offsetLeft + offsetWidth,
+                elmPosPlusSpaceTop = offsetTop + offsetHeight,
+                readyForLoadTrigger = elmPosPlusSpaceLeft > topScrollLeft - (elmPosPlusSpaceLeft + (elmPosPlusSpaceLeft / 2)) ||
+                    elmPosPlusSpaceTop > topScrollTop - (elmPosPlusSpaceTop + (elmPosPlusSpaceTop / 2)) ||
+                    elmPosPlusSpaceLeft < topScrollLeft + wInnerWidth + (elmPosPlusSpaceLeft + (elmPosPlusSpaceLeft / 2)) ||
+                    elmPosPlusSpaceTop < topScrollTop + wInnerHeight + (elmPosPlusSpaceTop + (elmPosPlusSpaceTop / 2));
 
+            if (readyForLoadTrigger) {
+                this.items[ind].triggerLoadRequested = true;
+            }
+        });
     }
 }
+
+class ImageWithLoaderModel {
+    loaded = false;
+    loading = false;
+    triggerLoadRequested = false;
+}
+

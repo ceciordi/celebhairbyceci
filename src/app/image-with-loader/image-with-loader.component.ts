@@ -1,8 +1,8 @@
-import {Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
-import {assign, isNumber, isset} from 'fjl';
+import {Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {assign, isNumber, isset, log} from 'fjl';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import {fromEvent} from 'rxjs';
-import {addClass, removeClass} from '../utils/classList-helpers';
+import {removeClass} from '../utils/classList-helpers';
 
 @Component({
     selector: 'app-image-with-loader',
@@ -10,10 +10,10 @@ import {addClass, removeClass} from '../utils/classList-helpers';
     styleUrls: ['./image-with-loader.component.scss']
 })
 export class ImageWithLoaderComponent implements OnInit, OnChanges {
-    private element: ElementRef;
+    readonly element: ElementRef;
     private xhr = new XMLHttpRequest();
     @Input() dataSrc: string;
-    @Input() hasBeenWithinAutoloadArea = false;
+    @Input() triggerLoadRequested = false;
     alt = 'Image description here';
     src: SafeResourceUrl;
     loading = false;
@@ -35,18 +35,18 @@ export class ImageWithLoaderComponent implements OnInit, OnChanges {
                     detail: {dataSrc}
                 });
             });
-        if (this.hasBeenWithinAutoloadArea) {
+        if (this.triggerLoadRequested) {
             this.loadSrc(dataSrc);
         }
     }
 
     ngOnChanges (changes: SimpleChanges) {
         const {loaded, dataSrc} = this,
-            {hasBeenWithinAutoloadArea} = changes;
+            {triggerLoadRequested} = changes;
         if (loaded) {
             return;
         }
-        if (hasBeenWithinAutoloadArea && hasBeenWithinAutoloadArea.currentValue) {
+        if (triggerLoadRequested && triggerLoadRequested.currentValue) {
             this.loadSrc(dataSrc);
         }
     }
@@ -66,6 +66,7 @@ export class ImageWithLoaderComponent implements OnInit, OnChanges {
     loadSrc (src) {
         this.xhr.abort();
         this.xhr.open('GET', src, true);
+        this.loaded = false;
         this.loading = true;
         this.progress = 0;
         this.xhr.send();
@@ -93,7 +94,8 @@ export class ImageWithLoaderComponent implements OnInit, OnChanges {
     }
 
     onLoadEnd () {
-        // this.progressText = 'Load ended';
+        this.progressText = 'Load completed';
+        log(this.progressText);
     }
 
     onAbort () {
@@ -103,5 +105,4 @@ export class ImageWithLoaderComponent implements OnInit, OnChanges {
     onError () {
         this.progressText = 'Unable to load image.';
     }
-
 }

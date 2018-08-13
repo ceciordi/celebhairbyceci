@@ -9,11 +9,14 @@ const
             return agg;
         }, {}),
 
-    addIndicesToImagesByWidths = (imagesByWidths) => // For all keys
+    normalizeInterfacesToImagesByWidths = (imagesByWidths) => // For all keys
         keys(imagesByWidths).reduce((agg, key) => {
             // For each in set add index property
             agg[key].forEach((x, ind) => {
                 x.index = ind;
+                x.loaded = false;
+                x.loading = false;
+                x.triggerLoadRequested = false;
                 return x;
             });
             return agg;
@@ -41,7 +44,7 @@ export class PortfolioServiceService {
             .then(portfolios => {
                 this.imagesList = portfolios;
                 this.imagesBySizes =
-                    addIndicesToImagesByWidths(
+                    normalizeInterfacesToImagesByWidths(
                         separateImagesByWidths(
                             portfolios[0].files,
                             this.sizes

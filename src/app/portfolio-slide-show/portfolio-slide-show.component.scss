@@ -115,6 +115,7 @@ $carousel-max-height: 100vh;
 and (orientation: portrait) {
     :host .carousel-items .carousel-item {
         min-width: 55vw;
+        min-height: 21vh;
         img {
             width: 100%;
             height: auto;
@@ -126,6 +127,7 @@ and (orientation: portrait) {
  {
     :host .carousel-items .carousel-item {
         min-width: 55vw;
+        min-height: 34vh;
         img {
             width: 100%;
             height: auto;
@@ -136,6 +138,7 @@ and (orientation: portrait) {
 @media (min-width: 1025px) and (max-width: 3840px) {
     :host .carousel-items .carousel-item {
         min-width: 34vw;
+        min-height: 34vw;
 
         img {
             width: auto;
