@@ -1,8 +1,8 @@
 import {Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
-import {assign, isNumber, isset, log} from 'fjl';
+import {assign, isNumber, isset, compose, log} from 'fjl';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import {fromEvent} from 'rxjs';
-import {removeClass} from '../utils/classList-helpers';
+import {addClass, removeClass} from '../utils/classList-helpers';
 
 @Component({
     selector: 'app-image-with-loader',
@@ -14,6 +14,7 @@ export class ImageWithLoaderComponent implements OnInit, OnChanges {
     private xhr = new XMLHttpRequest();
     @Input() dataSrc: string;
     @Input() triggerLoadRequested = false;
+    @Input() index: number;
     alt = 'Image description here';
     src: SafeResourceUrl;
     loading = false;
@@ -68,13 +69,13 @@ export class ImageWithLoaderComponent implements OnInit, OnChanges {
         this.xhr.open('GET', src, true);
         this.loaded = false;
         this.loading = true;
+        compose(addClass('loading'), removeClass('loaded'))(this.element);
         this.progress = 0;
         this.xhr.send();
     }
 
     onLoadStart () {
         this.progressText = '0%';
-        this.element.nativeElement.classList.add('loading');
     }
 
     onProgress (e) {
@@ -89,13 +90,12 @@ export class ImageWithLoaderComponent implements OnInit, OnChanges {
         this.src = this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(this.xhr.response));
         this.loading = false;
         this.loaded = true;
-        removeClass('loading', this.element);
+        compose(addClass('loaded'), removeClass('loading'))(this.element);
         this.element.nativeElement.setAttribute('data-loaded', 'data-loaded');
     }
 
     onLoadEnd () {
-        this.progressText = 'Load completed';
-        log(this.progressText);
+        // this.progressText = 'Load completed.';
     }
 
     onAbort () {

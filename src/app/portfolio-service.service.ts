@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {keys, error} from 'fjl';
+import {keys, error, jsonClone} from 'fjl';
 
 const
 
@@ -9,7 +9,7 @@ const
             return agg;
         }, {}),
 
-    normalizeInterfacesToImagesByWidths = (imagesByWidths) => // For all keys
+    normalizeInterfacesToImagesByWidths = (imagesByWidths: ImagesByWidths) => // For all keys
         keys(imagesByWidths).reduce((agg, key) => {
             // For each in set add index property
             agg[key].forEach((x, ind) => {
@@ -46,7 +46,7 @@ export class PortfolioServiceService {
                 this.imagesBySizes =
                     normalizeInterfacesToImagesByWidths(
                         separateImagesByWidths(
-                            portfolios[0].files,
+                            jsonClone(portfolios[0].files),
                             this.sizes
                         )
                     );

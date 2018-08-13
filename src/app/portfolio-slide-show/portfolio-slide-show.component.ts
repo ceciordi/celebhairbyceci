@@ -1,5 +1,5 @@
 import {
-    AfterContentInit,
+    AfterContentInit, AfterViewInit,
     Component,
     ElementRef,
     EventEmitter,
@@ -12,18 +12,19 @@ import {
     ViewChild,
     ViewChildren
 } from '@angular/core';
-import {findIndex, isset, forEach} from 'fjl';
+import {findIndex, isset, forEach, compose} from 'fjl';
 import {fromEvent} from 'rxjs';
 import {addClass, removeClass} from '../utils/classList-helpers';
 import {debounceTime} from 'rxjs/operators';
 import {getDocumentTopScrollable} from '../utils/dom-helpers';
 import {assign} from 'fjl';
+import {imageWithLoaderLazyLoadWatcher, loadTriggerCheck} from '../utils/imageWithLoaderParent-helpers';
 @Component({
   selector: 'app-portfolio-slide-show',
   templateUrl: './portfolio-slide-show.component.html',
   styleUrls: ['./portfolio-slide-show.component.scss']
 })
-export class PortfolioSlideShowComponent implements OnInit, OnChanges, AfterContentInit {
+export class PortfolioSlideShowComponent implements OnInit, OnChanges, AfterViewInit {
     @ViewChild('carouselContainer', {read: ElementRef}) carouselContainer: ElementRef;
     @ViewChild('carouselItems', {read: ElementRef}) carouselItems: ElementRef;
     @ViewChildren('imageWithLoader', {read: ElementRef}) childNodes: QueryList<ElementRef> = new QueryList();
@@ -35,8 +36,7 @@ export class PortfolioSlideShowComponent implements OnInit, OnChanges, AfterCont
     @Output() prevslide = new EventEmitter<any>();
     @Output() gotoslide = new EventEmitter<Num>();
     @Output() selftransitionend = new EventEmitter<any>();
-    imageRefsAwaitingLoad: Array<ElementRef>;
-    docScrollableElm: Element = getDocumentTopScrollable(window);
+    // docScrollableElm: Element = getDocumentTopScrollable(window);
     constructor() {}
 
     ngOnInit() {
@@ -51,6 +51,7 @@ export class PortfolioSlideShowComponent implements OnInit, OnChanges, AfterCont
                 if (!elm.classList.contains('carousel-items')) {
                     return;
                 }
+                this.imageLazyLoadCheck();
                 this.selftransitionend.emit(e);
             });
 
@@ -65,10 +66,6 @@ export class PortfolioSlideShowComponent implements OnInit, OnChanges, AfterCont
                 .pipe(resizeDebounceTime)
                 .subscribe(resizeHandler);
         }
-
-        fromEvent(window, 'scroll')
-            .pipe(resizeDebounceTime)
-            .subscribe(this.loadTriggerCheck.bind(this));
     }
 
     ngOnChanges (changes: SimpleChanges) {
@@ -82,9 +79,15 @@ export class PortfolioSlideShowComponent implements OnInit, OnChanges, AfterCont
         this.gotoSlide(currentValue);
     }
 
-    ngAfterContentInit () {
-        const loadPred = x => x.nativeElement.dataset.loaded;
-            this.imageRefsAwaitingLoad = this.childNodes.filter(loadPred);
+    ngAfterViewInit () {
+        imageWithLoaderLazyLoadWatcher(this.imageLazyLoadCheck);
+    }
+
+    imageLazyLoadCheck () {
+        if (!this.childNodes || !this.childNodes.length) {
+            return;
+        }
+        loadTriggerCheck(this.items, this.childNodes, getDocumentTopScrollable(window));
     }
 
     nextSlide () {
@@ -137,32 +140,4 @@ export class PortfolioSlideShowComponent implements OnInit, OnChanges, AfterCont
         }
     }
 
-    loadTriggerCheck () {
-        const {innerWidth: wInnerWidth, innerHeight: wInnerHeight} = window,
-            {scrollLeft: topScrollLeft, scrollTop: topScrollTop} = this.docScrollableElm;
-        this.childNodes.forEach((x, ind) => {
-            if (x.nativeElement.dataset.loaded) {
-                return false;
-            }
-            const elm = x.nativeElement,
-                {offsetWidth, offsetTop, offsetLeft, offsetHeight} = elm,
-                elmPosPlusSpaceLeft = offsetLeft + offsetWidth,
-                elmPosPlusSpaceTop = offsetTop + offsetHeight,
-                readyForLoadTrigger = elmPosPlusSpaceLeft > topScrollLeft - (elmPosPlusSpaceLeft + (elmPosPlusSpaceLeft / 2)) ||
-                    elmPosPlusSpaceTop > topScrollTop - (elmPosPlusSpaceTop + (elmPosPlusSpaceTop / 2)) ||
-                    elmPosPlusSpaceLeft < topScrollLeft + wInnerWidth + (elmPosPlusSpaceLeft + (elmPosPlusSpaceLeft / 2)) ||
-                    elmPosPlusSpaceTop < topScrollTop + wInnerHeight + (elmPosPlusSpaceTop + (elmPosPlusSpaceTop / 2));
-
-            if (readyForLoadTrigger) {
-                this.items[ind].triggerLoadRequested = true;
-            }
-        });
-    }
 }
-
-class ImageWithLoaderModel {
-    loaded = false;
-    loading = false;
-    triggerLoadRequested = false;
-}
-

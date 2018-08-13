@@ -1,30 +1,60 @@
-import {Component, OnInit, QueryList, ViewChildren, ElementRef, Input, Output, EventEmitter, SimpleChanges, OnChanges} from '@angular/core';
-import {log, findIndex, isset} from 'fjl';
+import {
+    AfterViewInit,
+    Component,
+    DoCheck,
+    ElementRef,
+    EventEmitter,
+    Input,
+    OnChanges,
+    OnInit,
+    Output,
+    QueryList,
+    SimpleChange,
+    SimpleChanges,
+    ViewChildren
+} from '@angular/core';
+import {findIndex, isset, log} from 'fjl';
+import {imageWithLoaderLazyLoadWatcher, loadTriggerCheck} from '../utils/imageWithLoaderParent-helpers';
+import {fromEvent} from 'rxjs';
+import {getDocumentTopScrollable} from '../utils/dom-helpers';
+import {debounceTime} from 'rxjs/operators';
 
 @Component({
     selector: 'app-portfolio-thumbs',
     templateUrl: './portfolio-thumbs.component.html',
     styleUrls: ['./portfolio-thumbs.component.scss']
 })
-export class PortfolioThumbsComponent implements OnInit, OnChanges {
+export class PortfolioThumbsComponent implements OnChanges, AfterViewInit {
     @ViewChildren('imageWithLoader', {read: ElementRef}) childNodes: QueryList<ElementRef>;
-    @Input() items: Array<Object> = [];
+    @Input() items: Array<ImageWithLoaderModel> = [];
     @Input() activeImageIndex: number;
     @Input() activeClassName = 'active';
     @Output() thumbclick = new EventEmitter<any>();
-    constructor() {}
-
-    ngOnInit() {}
+    docScrollableElm: HTMLElement = getDocumentTopScrollable(window);
 
     ngOnChanges (changes: SimpleChanges) {
-        if (!isset(changes.activeImageIndex)) {
+        this.handleActiveImageIndexChange(changes.activeImageIndex);
+    }
+
+    handleActiveImageIndexChange (activeImageIndex: SimpleChange | undefined) {
+        if (!isset(activeImageIndex)) {
             return;
         }
-        const {currentValue, firstChange} = changes.activeImageIndex;
+        const {currentValue, firstChange} = activeImageIndex;
         if (firstChange) {
             return;
         }
         this.setActiveThumbByIndex(currentValue);
+    }
+
+    ngAfterViewInit () {
+        const handler = () => {
+            if (!this.childNodes || !this.childNodes.length) {
+                return;
+            }
+            loadTriggerCheck(this.items, this.childNodes, this.docScrollableElm);
+        };
+        imageWithLoaderLazyLoadWatcher(handler);
     }
 
     setActiveThumbByIndex (ind) {

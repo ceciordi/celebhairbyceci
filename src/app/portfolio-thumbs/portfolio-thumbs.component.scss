@@ -23,7 +23,7 @@
                     filter $ani-speed-2 ease-in-out,
                 ), (opacity transform filter))
         );
-        //@include opacity(0.89);
+        @include opacity(0.89);
         display: inline-block;
         margin-bottom: 1%;
         text-align: center;
@@ -53,6 +53,7 @@
 @media (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
     :host app-image-with-loader {
         flex-basis: 100%;
+        min-height: 55vh;
         margin: 1%;
     }
 }

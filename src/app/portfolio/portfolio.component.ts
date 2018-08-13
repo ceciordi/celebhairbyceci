@@ -4,7 +4,6 @@ import {error, findIndex, noop, log, assign, last, compose, forEach} from 'fjl';
 import {fromEvent} from 'rxjs';
 import StaticPaginator from '../utils/StaticPaginator';
 import {hasClass, addClass, removeClass} from '../utils/classList-helpers';
-import {debounceTime} from 'rxjs/operators';
 
 @Component({
     selector: 'app-portfolio',
@@ -14,7 +13,7 @@ import {debounceTime} from 'rxjs/operators';
 export class PortfolioComponent implements OnInit {
     @ViewChild('slideShow', {read: ElementRef}) slideShow: ElementRef;
     @ViewChild('bgOverlay', {read: ElementRef}) bgOverlay: ElementRef;
-    private slideShowImageSize = 1597;
+    private slideShowImageSize = 987;
     private thumbImageSize = 377;
     private slidesPaginator = new StaticPaginator({
         autoUpdatePageNumber: false
@@ -22,8 +21,9 @@ export class PortfolioComponent implements OnInit {
     activeClassName = 'active';
     hiddenByClassName = 'hidden-by-z-index';
     activeImageItemIndex = 0;
-    thumbImages: object[] = [];
-    slideShowImages: object[] = [];
+    thumbImages: Array<ImageWithLoaderModel> = [];
+    slideShowImages: Array<ImageWithLoaderModel> = [];
+
     constructor(private portfolioService: PortfolioServiceService) {
         this.slideShowImageSize = last(portfolioService.sizes);
         const {thumbImageSize, slideShowImageSize} = this,
@@ -48,7 +48,6 @@ export class PortfolioComponent implements OnInit {
     }
 
     ngOnInit() {
-
     }
 
     openSlideShow ({index}) {
