@@ -1,5 +1,5 @@
 import {
-    AfterContentInit, AfterViewInit,
+    AfterViewInit,
     Component,
     ElementRef,
     EventEmitter,
@@ -18,7 +18,7 @@ import {addClass, removeClass} from '../utils/classList-helpers';
 import {debounceTime} from 'rxjs/operators';
 import {getDocumentTopScrollable} from '../utils/dom-helpers';
 import {assign} from 'fjl';
-import {imageWithLoaderLazyLoadWatcher, loadTriggerCheck} from '../utils/imageWithLoaderParent-helpers';
+import {loadTriggerCheck} from '../utils/imageWithLoaderParent-helpers';
 @Component({
   selector: 'app-portfolio-slide-show',
   templateUrl: './portfolio-slide-show.component.html',
@@ -36,35 +36,46 @@ export class PortfolioSlideShowComponent implements OnInit, OnChanges, AfterView
     @Output() prevslide = new EventEmitter<any>();
     @Output() gotoslide = new EventEmitter<Num>();
     @Output() selftransitionend = new EventEmitter<any>();
-    // docScrollableElm: Element = getDocumentTopScrollable(window);
     constructor() {}
 
     ngOnInit() {
         const resizeDebounceTime = debounceTime(300),
             resizeHandler = () => {
                 this.gotoSlide(this.activeImageIndex);
-            };
-
-        fromEvent(this.carouselItems.nativeElement, 'transitionend')
-            .subscribe((e: TransitionEvent) => {
+            },
+            imgLazyLoadCheckHandler = e => {
                 const elm = e.currentTarget as HTMLElement;
-                if (!elm.classList.contains('carousel-items')) {
+                if (elm && !elm.classList.contains('carousel-items')) {
                     return;
                 }
                 this.imageLazyLoadCheck();
+            };
+
+        fromEvent(this.carouselItems.nativeElement, 'transitionstart')
+            .subscribe(imgLazyLoadCheckHandler);
+
+        fromEvent(this.carouselItems.nativeElement, 'transitionend')
+            .subscribe((e: TransitionEvent) => {
+                imgLazyLoadCheckHandler(e);
                 this.selftransitionend.emit(e);
             });
 
         // Handle resize
         fromEvent(window, 'resize')
             .pipe(resizeDebounceTime)
-            .subscribe(resizeHandler);
+            .subscribe(() => {
+                resizeHandler();
+                this.imageLazyLoadCheck();
+            });
 
         // Handle orientation change
         if (window.onorientationchange) {
             fromEvent(window, 'orientationchange')
                 .pipe(resizeDebounceTime)
-                .subscribe(resizeHandler);
+                .subscribe(() => {
+                    resizeHandler();
+                    this.imageLazyLoadCheck();
+                });
         }
     }
 
@@ -80,7 +91,6 @@ export class PortfolioSlideShowComponent implements OnInit, OnChanges, AfterView
     }
 
     ngAfterViewInit () {
-        imageWithLoaderLazyLoadWatcher(this.imageLazyLoadCheck);
     }
 
     imageLazyLoadCheck () {

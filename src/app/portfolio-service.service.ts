@@ -31,7 +31,7 @@ export class PortfolioServiceService {
     private imagesBySizes: object = {};
     private fetchImagesIo: Promise<object>;
     endpointUrl = '/assets/json/portfolios-data.json';
-    sizes = [55, 89, 233, 377, 610, 987]; // , 1597];
+    sizes = [55, 89, 233, 377, 610, 987, 1597];
 
     constructor() {}
 
