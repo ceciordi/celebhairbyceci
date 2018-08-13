@@ -13,7 +13,7 @@ export class ImageWithLoaderComponent implements OnInit, OnChanges {
     private element: ElementRef;
     private xhr = new XMLHttpRequest();
     @Input() dataSrc: string;
-    @Input() hasBeenWithinAutoloadArea = true;
+    @Input() hasBeenWithinAutoloadArea = false;
     alt = 'Image description here';
     src: SafeResourceUrl;
     loading = false;

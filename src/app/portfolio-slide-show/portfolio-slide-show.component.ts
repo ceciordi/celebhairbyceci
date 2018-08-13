@@ -15,6 +15,7 @@ import {findIndex, isset, forEach} from 'fjl';
 import {fromEvent} from 'rxjs';
 import {addClass, removeClass} from '../utils/classList-helpers';
 import {debounceTime} from 'rxjs/operators';
+import {getDocumentTopScrollable} from '../utils/dom-helpers';
 
 @Component({
   selector: 'app-portfolio-slide-show',
@@ -33,22 +34,25 @@ export class PortfolioSlideShowComponent implements OnInit, OnChanges {
     @Output() prevslide = new EventEmitter<any>();
     @Output() gotoslide = new EventEmitter<Num>();
     @Output() selftransitionend = new EventEmitter<any>();
+    imageRefsAwaitingLoad: Array<ElementRef>;
     constructor() {}
 
     ngOnInit() {
-        fromEvent(this.carouselItems.nativeElement, 'transitionend')
-            .subscribe((e: TransitionEvent) => {
-                const elm = e.currentTarget as HTMLElement;
-                    if (!elm.classList.contains('carousel-items')) {
-                        return;
-                    }
-                    this.selftransitionend.emit(e);
-                });
-
         const resizeDebounceTime = debounceTime(300),
             resizeHandler = () => {
                 this.gotoSlide(this.activeImageIndex);
-            };
+            },
+            loadPred = x => x.nativeElement.dataset.loaded,
+            docScrollableElm = getDocumentTopScrollable(window);
+
+        fromEvent(this.carouselItems.nativeElement, 'transitionend')
+            .subscribe((e: TransitionEvent) => {
+                const elm = e.currentTarget as HTMLElement;
+                if (!elm.classList.contains('carousel-items')) {
+                    return;
+                }
+                this.selftransitionend.emit(e);
+            });
 
         // Handle resize
         fromEvent(window, 'resize')
@@ -62,15 +66,26 @@ export class PortfolioSlideShowComponent implements OnInit, OnChanges {
                 .subscribe(resizeHandler);
         }
 
+        this.imageRefsAwaitingLoad = this.childNodes.filter(loadPred);
+
         fromEvent(window, 'scroll')
             .pipe(resizeDebounceTime)
             .subscribe(() => {
-                this.childNodes.forEach(x => {
-                    const elm = x.nativeElement;
-                    if (elm.dataset.loaded) {
-                        return;
+                const {innerWidth: wInnerWidth, innerHeight: wInnerHeight} = window,
+                    {scrollLeft: topScrollLeft, scrollTop: topScrollTop} = docScrollableElm;
+
+                this.imageRefsAwaitingLoad.filter(x => {
+                    if (x.nativeElement.dataset.loaded) {
+                        return false;
                     }
-                    // elm.offsetTop
+                    const elm = x.nativeElement,
+                        {offsetWidth, offsetTop, offsetLeft, offsetHeight} = elm,
+                        elmPosPlusSpaceLeft = offsetLeft + offsetWidth,
+                        elmPosPlusSpaceTop = offsetTop + offsetHeight;
+
+                    // elmPosPlusSpaceLeft > topScrollLeft - (elmPosPlusSpaceLeft + (elmPosPlusSpaceLeft / 2)) ||
+                    // elmPosPlusSpaceTop > topScrollTop - (elmPosPlusSpaceTop + (elmPosPlusSpaceTop / 2))
+                    return true;
                 });
             });
     }
@@ -134,5 +149,9 @@ export class PortfolioSlideShowComponent implements OnInit, OnChanges {
         if (e.target === e.currentTarget) {
             this.closeSlideShow();
         }
+    }
+
+    addEventListeners () {
+
     }
 }
