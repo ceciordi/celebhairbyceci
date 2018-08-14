@@ -32,7 +32,6 @@ export const
     ) => {
         const {scrollLeft: topScrollLeft, scrollTop: topScrollTop} = containerElm,
             {innerWidth, innerHeight} = window;
-        // @todo return reduced list
         return childNodes.filter((ref, ind) => {
             if (ref.nativeElement.dataset.loaded) {
                 return false;

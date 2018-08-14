@@ -36,7 +36,10 @@ export class PortfolioSlideShowComponent implements OnInit, OnChanges, AfterView
     @Output() prevslide = new EventEmitter<any>();
     @Output() gotoslide = new EventEmitter<Num>();
     @Output() selftransitionend = new EventEmitter<any>();
-    constructor() {}
+    private element: ElementRef;
+    constructor(private selfRef: ElementRef) {
+        this.element = selfRef;
+    }
 
     ngOnInit() {
         const resizeDebounceTime = debounceTime(300),
@@ -51,7 +54,7 @@ export class PortfolioSlideShowComponent implements OnInit, OnChanges, AfterView
                 this.imageLazyLoadCheck();
             };
 
-        fromEvent(this.carouselItems.nativeElement, 'transitionstart')
+        fromEvent(this.element.nativeElement, 'transitionend')
             .subscribe(imgLazyLoadCheckHandler);
 
         fromEvent(this.carouselItems.nativeElement, 'transitionend')

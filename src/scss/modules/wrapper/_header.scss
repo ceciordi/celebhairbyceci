@@ -32,66 +32,6 @@
   }
 }
 
-> header.overlay-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 98;
-  box-shadow: 0 0 55px rgba(0, 0, 0, 0.34);
-  //@include with-browser-prefixes(transition,
-  //        fit-with-browser-prefixes((
-  //                opacity $ani-speed-3 ease-in-out,
-  //                transform $ani-speed-3 ease-in-out,
-  //        ), (transform, opacity))
-  //);
-  //@include transform(translateY(-100px));
-  @include with-browser-prefixes(opacity, 0);
-
-  h2 {
-    display: none;
-  }
-
-  > div {
-    display: flex;
-    align-items: center;
-  }
-
-  .logo h1,
-  .logo,
-  nav {
-    display: inline-block;
-  }
-
-  .logo h1,
-  .logo {
-    margin: 0;
-  }
-
-  nav {
-    @include transform(translateX(13px));
-  }
-
-  nav ul li a {
-    color: $color-7-1;
-  }
-}
-
-> header.overlay-header.active {
-  animation: slide-in-from-top;
-  animation-duration: $ani-speed-3;
-  @include transform(translateY(0));
-  @include with-browser-prefixes(opacity, 1);
-}
-
-> header.overlay-header.in-active {
-  animation: fade-away;
-  animation-duration: $ani-speed-3;
-}
-
-> header.overlay-header.offscreen {
-  @include transform(translateY(-100%));
-}
-
 @media (min-width: 320px) and (max-width: 767px) {
   > header > div {
     .logo {
@@ -107,19 +47,12 @@
       flex-direction: row;
     }
     .logo h1,
-    .hamburger-btn {
-      position: relative;
-      display: inline-block;
-    }
-    .hamburger-btn .slice {
-      background: $color-7-1;
-    }
     .logo h1 {
       &, a {
         line-height: 0;
       }
       a {
-        font-size: 1.5rem;
+        font-size: 2rem;
       }
       flex-basis: 100%;
     }
@@ -147,20 +80,5 @@
       line-height: 34px;
     }
   }
-  > header {
-    .hamburger-btn {
-      display: none;
-    }
-    nav {
-      display: block;
-    }
-  }
-  > header.overlay-header {
-    .logo + nav:last-child {
-      margin-left: 13px;
-    }
-  }
-  > header.overlay-header + .mobile-nav {
-    display: none;
-  }
+
 }
