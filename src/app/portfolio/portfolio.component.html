@@ -13,7 +13,10 @@
     (gotoslide)="gotoSlide($event)"
     (selftransitionend)="onOverlayTransitionEnd($event)"
 ></app-portfolio-slide-show>
+<section class="description">
+    <p>Click on the images to see larger sizes:</p>
 <app-portfolio-thumbs
     [items]="thumbImages"
     [activeImageIndex]="activeImageItemIndex"
     (thumbclick)="openSlideShow($event)"></app-portfolio-thumbs>
+</section>

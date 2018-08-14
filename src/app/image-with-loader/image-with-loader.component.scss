@@ -8,7 +8,7 @@
     @include user-select(none);
 
     &, img, .progress-text {
-        display: inline-block;
+        display: block;
         position: relative;
     }
 

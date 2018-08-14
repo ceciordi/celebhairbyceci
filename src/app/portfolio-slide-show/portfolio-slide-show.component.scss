@@ -76,10 +76,12 @@ $carousel-max-height: 100vh;
     .carousel-item {
         box-shadow: 0 0 55px rgba(0, 0, 0, 0.34);
         background: #FFF;
-        flex-basis: 34vw;
-        max-height: 89vh;
+        width: auto;
+        height: auto;
+        max-height: 90vh;
         min-width: 34vw;
         overflow: hidden;
+        margin: 0;
         z-index: $carousel-z-index + 1;
         @include transform(scale(0.89));
         @include with-browser-prefixes(transform-origin, (center center));
@@ -111,25 +113,65 @@ $carousel-max-height: 100vh;
 
 }
 
-@media (min-width: 320px) and (max-width: 767px)
-and (orientation: portrait) {
+@media (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
     :host .carousel-items .carousel-item {
-        min-width: 55vw;
-        min-height: 21vh;
+        min-width: 90vw;
     }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
     :host .carousel-items .carousel-item {
-        min-width: 55vw;
-        min-height: 34vh;
+
+        &.portrait {
+            min-height: 90vh;
+            min-width: 42vw;
+        }
+
+        &.landscape {
+            min-height: 21vh;
+            min-width: 55vw;
+        }
     }
 }
 
-@media (min-width: 1025px) and (max-width: 3840px) {
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     :host .carousel-items .carousel-item {
-        min-width: 34vw;
-        min-height: 34vw;
+        min-width: 55vw;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    :host .carousel-items .carousel-item {
+        min-width: 72vw;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1439px) {
+    :host .carousel-items .carousel-item {
+        min-width: 55vw;
+    }
+}
+
+@media (min-width: 1440px) and (max-width: 2560px) {
+    :host .carousel-items .carousel-item {
+        &.portrait {
+            min-width: 34vw;
+        }
+        &.landscape {
+            min-width: 55vw;
+        }
+
+    }
+}
+
+@media (min-width: 2561px) and (max-width: 3840px) {
+    :host .carousel-items .carousel-item {
+        &.portrait {
+            min-width: 34vw;
+        }
+        &.landscape {
+            min-width: 55vw;
+        }
     }
 }
 
