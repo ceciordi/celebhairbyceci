@@ -1,6 +1,5 @@
 import {
     AfterViewChecked,
-    AfterViewInit,
     Component,
     ElementRef,
     EventEmitter,
@@ -12,7 +11,6 @@ import {
 } from '@angular/core';
 import {assign, isNumber, isset, compose, log} from 'fjl';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
-import {fromEvent} from 'rxjs';
 import {addClass, removeClass} from '../utils/classList-helpers';
 
 @Component({
@@ -26,13 +24,15 @@ export class ImageWithLoaderComponent implements OnInit, OnChanges, AfterViewChe
     @Input() dataSrc: string;
     @Input() triggerLoadRequested = false;
     @Input() index: number;
-    @Output() imageWithPreloaderClick = new EventEmitter<object>();
-    alt = 'Image description here';
+    @Input() width = '100%';
+    @Input() height = '';
+    @Input() alt = 'Image description here';
     src: SafeResourceUrl;
     loading = false;
     loaded = false;
     progress = 0;
     progressText = '';
+    @Output() loadstate = new EventEmitter<Num>();
 
     constructor(private sanitizer: DomSanitizer, private selfRef: ElementRef) {
         this.element = selfRef;
@@ -41,12 +41,6 @@ export class ImageWithLoaderComponent implements OnInit, OnChanges, AfterViewChe
     ngOnInit() {
         const {dataSrc, element} = this;
         this.initXHR();
-        fromEvent(element.nativeElement, 'click')
-            .subscribe(() => {
-                this.imageWithPreloaderClick.emit({
-                    detail: {dataSrc}
-                });
-            });
         if (this.triggerLoadRequested) {
             this.loadSrc(dataSrc);
         }
@@ -77,7 +71,7 @@ export class ImageWithLoaderComponent implements OnInit, OnChanges, AfterViewChe
         xhr.responseType = 'blob';
         xhr.addEventListener('loadstart', self.onLoadStart.bind(self));
         xhr.addEventListener('progress', self.onProgress.bind(self));
-        xhr.addEventListener('loadend', self.onLoadEnd.bind(self));
+        // xhr.addEventListener('loadend', self.onLoadEnd.bind(self));
         xhr.addEventListener('load', self.onLoad.bind(self));
         xhr.addEventListener('error', self.onError.bind(self));
         xhr.addEventListener('abort', self.onAbort.bind(self));
@@ -94,6 +88,7 @@ export class ImageWithLoaderComponent implements OnInit, OnChanges, AfterViewChe
 
     onLoadStart () {
         this.progressText = 'Awaiting load queue...';
+        this.loadstate.emit(0);
     }
 
     onProgress (e) {
@@ -108,12 +103,13 @@ export class ImageWithLoaderComponent implements OnInit, OnChanges, AfterViewChe
         this.src = this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(this.xhr.response));
         this.loading = false;
         this.loaded = true;
+        this.loadstate.emit(1);
         this.element.nativeElement.setAttribute('data-loaded', 'data-loaded');
     }
 
-    onLoadEnd () {
-        // this.progressText = 'Load completed.';
-    }
+    // onLoadEnd () {
+    //     this.progressText = 'Load ended.';
+    // }
 
     onAbort () {
         this.progressText = 'Image loading aborted.';

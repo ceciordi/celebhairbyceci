@@ -1,0 +1,19 @@
+@import "../../scss/component-includes";
+
+:host {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1%;
+    background: $color-7-2;
+    color: $color-7-3;
+    border: 3px solid $color-7-2;
+    text-align: center;
+    overflow: hidden;
+    z-index: 1;
+
+    app-image-with-loader {
+        position: relative;
+        display: block;
+        width: 100%;
+    }
+}

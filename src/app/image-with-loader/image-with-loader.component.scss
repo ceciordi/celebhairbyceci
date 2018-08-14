@@ -1,15 +1,24 @@
 @import "../../scss/component-includes";
 
 :host {
-    position: relative;
-    background: $color-7-3;
-
-    @include transition((width $ani-speed-3, height $ani-speed-3,));
+    background: $color-7-2;
+    color: $color-7-3;
+    overflow: hidden;
+    height: 100%;
     @include user-select(none);
+
+    &, img, .progress-text {
+        display: inline-block;
+        position: relative;
+    }
+
+    &, img, .progress-text, .preload-overlay {
+        width: 100%;
+    }
 
     &.not-loaded {
         .preload-overlay {
-            @include opacity(0.55);
+            @include opacity(1);
         }
         img {
             opacity: 0;
@@ -22,29 +31,60 @@
     }
 
     img {
-        position: relative;
-        display: block;
         width: 100%;
         opacity: 1;
         z-index: 1;
     }
 
+    // If `app-image-with-loader` is within `app-portfolio-thumbnail` then...
+    &:host-context(app-portfolio-thumb) {
+        &,
+        img {
+            @include with-browser-prefixes(transform-origin, (center center));
+            @include transition(
+                    fit-with-browser-prefixes((
+                        transform $ani-speed-3,
+                        opacity $ani-speed-1,
+                        filter $ani-speed-1,
+                        width $ani-speed-1 ease-in-out,
+                        height $ani-speed-1 ease-in-out,
+                    ), (opacity transform filter))
+            );
+        }
+
+        &:hover,
+        &:active {
+            cursor: pointer;
+            @include opacity(1);
+            z-index: 2;
+        }
+
+        &.active img,
+        &:hover img {
+            @include transform(scale(1.021));
+            filter: brightness(1.1);
+        }
+
+        &:active img {
+            @include transform(scale(1.021));
+            filter: brightness(1.1) saturate(104%);
+        }
+    }
+
     .preload-overlay {
         position: absolute;
-        width: 100%;
         height: 100%;
-        background: #FFF;
-        text-align: center;
+        background: $color-7-2;
         @include opacity(0);
         z-index: 2;
 
         .progress-text {
-            position: relative;
             top: 50%;
             left: 50%;
+            text-align: center;
             font-weight: bold;
             font-size: 1.3rem;
-            color: $color-7-1;
+            color: $color-7-3;
             @include transform(translate(-50%, -50%));
         }
     }

@@ -116,22 +116,13 @@ and (orientation: portrait) {
     :host .carousel-items .carousel-item {
         min-width: 55vw;
         min-height: 21vh;
-        img {
-            width: 100%;
-            height: auto;
-        }
     }
 }
 
-@media (min-width: 768px) and (max-width: 1024px)
- {
+@media (min-width: 768px) and (max-width: 1024px) {
     :host .carousel-items .carousel-item {
         min-width: 55vw;
         min-height: 34vh;
-        img {
-            width: 100%;
-            height: auto;
-        }
     }
 }
 
@@ -139,11 +130,6 @@ and (orientation: portrait) {
     :host .carousel-items .carousel-item {
         min-width: 34vw;
         min-height: 34vw;
-
-        img {
-            width: auto;
-            max-height: 72vh;
-        }
     }
 }
 
