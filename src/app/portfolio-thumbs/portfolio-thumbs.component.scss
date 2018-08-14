@@ -53,7 +53,8 @@
 @media (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
     :host app-image-with-loader {
         flex-basis: 100%;
-        min-height: 55vh;
+        width: 100%;
+        height: 55vh;
         margin: 1%;
     }
 }
@@ -61,55 +62,63 @@
 @media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
     :host app-image-with-loader {
         flex-basis: 32.33%;
-        max-height: 48vh;
+        width: 32.33%;
+        height: 48vh;
     }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     :host app-image-with-loader {
         flex-basis: 32.33%;
-        max-height: 31.33vh;
+        width: 32.33%;
+        height: 31.33vh;
     }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     :host app-image-with-loader {
         flex-basis: 32.33%;
-        max-height: 21vh;
+        width: 32.33%;
+        height: 21vh;
     }
 }
 
 @media (min-width: 1025px) and (max-width: 1439px) {
     :host app-image-with-loader {
         flex-basis: 24.33%;
-        max-height: 34vh;
+        width: 24.33%;
+        height: 34vh;
     }
 }
 
 @media (min-width: 1025px) and (max-width: 1439px) and (orientation: portrait) {
     :host app-image-with-loader {
         flex-basis: 32.33%;
-        max-height: 21vh;
+        width: 32.33%;
+        height: 21vh;
     }
 }
 
 @media (min-width: 1440px) {
     :host app-image-with-loader {
         flex-basis: 19.33%;
-        max-height: 34vh;
+        width: 19.33%;
+        height: 34vh;
     }
 }
 
 @media (min-width: 1440px) and (orientation: portrait) {
     :host app-image-with-loader {
         flex-basis: 19.33%;
-        max-height: 13vh;
+        width: 19.33%;
+        height: 13vh;
     }
 }
 
 @media (min-width: 1440px) and (orientation: landscape) {
     :host app-image-with-loader {
         flex-basis: 19.33%;
-        max-height: 32.33vh;
+        width: 19.33%;
+        height: 32.33vh;
     }
 }

@@ -8,14 +8,18 @@
   .logo {
     cursor: pointer;
 
+    &, h1, h1 a, h2 {
+      display: inline-block;
+    }
     h1 {
       line-height: 0;
     }
     h1 a {
-      font: normal 34px "Lato", $global-fonts;
+      font: bold 34px "brandon-grotesque", "Lato", $global-fonts;
       color: $color-7-1;
       text-decoration: none;
       text-transform: uppercase;
+        letter-spacing: 0.55rem;
     }
     h1 a:hover {
       color: $color-7-1;
