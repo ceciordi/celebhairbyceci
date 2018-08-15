@@ -2,8 +2,18 @@
 
 :host {
     position: fixed;
+    animation-name: carousel-in;
+    animation-direction: reverse;
+    animation-duration: 0s;
+    @include transform(translateY(-5%));
+    @include opacity(0);
     top: 0;
     left: 0;
+    background: linear-gradient(
+            transparentize($color-7-2, 1),
+            $color-7-2,
+            transparentize($color-7-2, 1)
+        );
 
     > * {
         position: relative;
@@ -71,49 +81,53 @@
 
 @media (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
     :host .carousel-items .carousel-item {
-        min-width: 90vw;
+        flex-basis: 90vw;
+        .landscape {
+            flex-basis: 100vw;
+            height: auto;
+        }
     }
 }
 
 @media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
     :host .carousel-items .carousel-item {
         &.portrait {
-            min-height: 90vh;
-            min-width: 42vw;
+            min-height: 34%;
+            flex-basis: 55vw;
         }
 
         &.landscape {
-            min-height: 21vh;
-            min-width: 55vw;
+            height: 34%;
+            flex-basis: 72vw;
         }
     }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     :host .carousel-items .carousel-item {
-        min-width: 55vw;
+        flex-basis: 55vw;
     }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     :host .carousel-items .carousel-item {
-        min-width: 72vw;
+        flex-basis: 72vw;
     }
 }
 
 @media (min-width: 1025px) and (max-width: 1439px) {
     :host .carousel-items .carousel-item {
-        min-width: 55vw;
+        flex-basis: 55vw;
     }
 }
 
 @media (min-width: 1440px) and (max-width: 2560px) {
     :host .carousel-items .carousel-item {
         &.portrait {
-            min-width: 34vw;
+            flex-basis: 34vw;
         }
         &.landscape {
-            min-width: 55vw;
+            flex-basis: 55vw;
         }
 
     }
@@ -122,10 +136,10 @@
 @media (min-width: 2561px) and (max-width: 3840px) {
     :host .carousel-items .carousel-item {
         &.portrait {
-            min-width: 34vw;
+            flex-basis: 34vw;
         }
         &.landscape {
-            min-width: 55vw;
+            flex-basis: 55vw;
         }
     }
 }

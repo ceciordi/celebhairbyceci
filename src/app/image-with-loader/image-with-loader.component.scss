@@ -1,11 +1,19 @@
 @import "../../scss/component-includes";
 
 :host {
-    background: $color-7-2;
-    color: $color-7-3;
     overflow: hidden;
     height: 100%;
     @include user-select(none);
+
+    &.not-loaded {
+        .preload-overlay {
+            @include opacity(1);
+        }
+        img {
+            opacity: 0;
+            height: 100%;
+        }
+    }
 
     &, img, .progress-text {
         display: block;
@@ -16,15 +24,6 @@
         width: 100%;
     }
 
-    &.not-loaded {
-        .preload-overlay {
-            @include opacity(1);
-        }
-        img {
-            opacity: 0;
-        }
-    }
-
     img,
     .preload-overlay {
         @include transition(fit-with-browser-prefixes((opacity $ani-speed-2 linear,), opacity));
@@ -32,12 +31,32 @@
 
     img {
         width: 100%;
+        height: auto;
         opacity: 1;
         z-index: 1;
     }
 
+    .preload-overlay {
+        position: absolute;
+        height: 100%;
+        @include opacity(0);
+        z-index: 2;
+    }
+
+    .progress-text {
+        top: 50%;
+        left: 50%;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.3rem;
+        @include transform(translate(-50%, -50%));
+    }
+
     // If `app-image-with-loader` is within `app-portfolio-thumbnail` then...
     &:host-context(app-portfolio-thumb) {
+        background: $color-7-2;
+        color: $color-7-3;
+
         &,
         img {
             @include with-browser-prefixes(transform-origin, (center center));
@@ -72,24 +91,31 @@
     }
 
     &:host-context(app-portfolio-slide) {
+        @extend %slide-transition-def;
+        &.not-loaded {
+            height: 21vh;
+        }
+        &.loaded {
+            height: auto;
+        }
 
-    }
-
-    .preload-overlay {
-        position: absolute;
-        height: 100%;
-        background: $color-7-2;
-        @include opacity(0);
-        z-index: 2;
-
+        &,
+        .preload-overlay {
+            background: none;
+        }
         .progress-text {
-            top: 50%;
-            left: 50%;
-            text-align: center;
-            font-weight: bold;
-            font-size: 1.3rem;
-            color: $color-7-3;
-            @include transform(translate(-50%, -50%));
+            color: $color-7-2;
+        }
+
+        img {
+            @include opacity(0.89);
+        }
+
+        &:hover img,
+        &.active img,
+        &:active img {
+            @include opacity(1);
         }
     }
+
 }

@@ -8,7 +8,9 @@
             #imageWithLoader
             *ngFor="let item of items"
             dataSrc="{{item.filePath}}"
-            [ngClass]="'carousel-item ' + (item.width > item.height ? 'landscape' : 'portrait')"
+            [className]="'carousel-item ' +
+            (item.width > item.height ? 'landscape' : 'portrait') + ' ' +
+            (item.index === activeImageIndex ? activeClassName : '')"
             (imageWithPreloaderClick)="onSlideClick($event)"
             [triggerLoadRequested]="item.triggerLoadRequested"
             [index]="item.index"

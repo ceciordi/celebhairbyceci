@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 import {assign, isNumber, isset, compose, log} from 'fjl';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
-import {addClass, removeClass} from '../utils/classList-helpers';
+import {addClass, hasClass, removeClass} from '../utils/classList-helpers';
 
 @Component({
     selector: 'app-image-with-loader',
@@ -62,6 +62,7 @@ export class ImageWithLoaderComponent implements OnInit, OnChanges, AfterViewChe
         const {loaded, element} = this;
         if (loaded) {
             removeClass('not-loaded', element);
+            addClass('loaded', element);
         }
     }
 

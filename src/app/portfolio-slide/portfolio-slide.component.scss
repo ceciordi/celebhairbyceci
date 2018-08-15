@@ -2,46 +2,41 @@
 
 :host {
     position: relative;
-    display: inline-block;
+    display: block;
+
     width: auto;
     height: auto;
     max-height: 90vh;
-    min-height: 34vh;
+    min-height: 21vh;
     min-width: 34vw;
     margin: 0;
     overflow: hidden;
     z-index: $carousel-z-index + 1;
 
-    background: $color-7-2;
-    color: $color-7-3;
     text-align: center;
     box-shadow: 0 0 55px rgba(0, 0, 0, 0.34);
+    background: $color-7-3;
+    color: $color-7-2;
 
+    @extend %slide-transition-def;
     @include transform(scale(0.89));
     @include with-browser-prefixes(transform-origin, (center center));
-
-    app-image-with-loader {
-        position: relative;
-        display: block;
-        width: 100%;
-        @extend %slide-transition-def;
-        @include opacity(0.55);
-    }
 
     &:hover {
         cursor: pointer;
     }
 
-    &.active app-image-with-loader {
-        @include opacity(1);
-    }
-
-    &.active {
+    &.active,
+    &:active {
         @include transform(scale(1.1));
         z-index: $carousel-z-index + 2;
         margin: 0 1.0rem;
         box-shadow: 0 0 144px rgba(0, 0, 0, 0.13);
-        @include opacity(1);
+    }
+
+    &.loaded {
+        min-height: auto;
+        height: auto;
     }
 
 }

@@ -4,5 +4,6 @@
     [triggerLoadRequested]="triggerLoadRequested"
     [index]="index"
     (loadstate)="onImageLoadStateChange($event)"
-    (click)="onImageWithLoaderClick($event)"
+    (click)="onImageWithLoaderClick()"
+    (transitionend)="onTransitionEnd($event)"
 ></app-image-with-loader>
