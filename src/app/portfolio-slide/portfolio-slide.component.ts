@@ -1,8 +1,9 @@
 import {Component, ElementRef, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {log} from 'fjl';
 import {fromEvent} from 'rxjs';
-import {addClass, hasClass} from '../utils/classList-helpers';
+import {addClass, hasClass, removeClass} from '../utils/classList-helpers';
 import {offsetsToViewMeasurements} from '../utils/math';
+import {LOAD_STATE} from '../image-with-loader/image-with-loader.component';
 
 @Component({
   selector: 'app-portfolio-slide',
@@ -34,15 +35,14 @@ export class PortfolioSlideComponent implements OnInit {
     }
 
     onImageLoadStateChange (loadstate) {
+        const {element: {nativeElement}} = this;
         switch (loadstate) {
-            case 0:
-                // log('Load started');
-                this.element.nativeElement.setAttribute('data-loaded', '');
+            case LOAD_STATE.LOAD_START:
+                nativeElement.setAttribute('data-loaded', undefined);
                 break;
-            case 1:
+            case LOAD_STATE.LOAD_LOAD:
             default:
-                // log('Load completed');
-                this.element.nativeElement.setAttribute('data-loaded', 'data-loaded');
+                nativeElement.setAttribute('data-loaded', 'data-loaded');
                 break;
         }
     }
@@ -53,17 +53,17 @@ export class PortfolioSlideComponent implements OnInit {
     }
 
     onTransitionEnd (e) {
-        // const {target, currentTarget} = e,
-        //     {element} = this;
-        // if (!hasClass('preload-overlay', target)) {
-        //     return;
-        // }
-        // if (!hasClass('not-loaded', currentTarget) && currentTarget.dataset.loaded) {
-        //     // const {vw, vh} = offsetsToViewMeasurements(currentTarget, window);
-        //     // currentTarget.style.height = `${vh}vh`;
-        //     // currentTarget.style.width = `${vw}vw`;
-        //     addClass('loaded', currentTarget);
-        //     addClass('loaded', element);
-        // }
+        const {target, currentTarget} = e,
+            {element} = this;
+        if (!hasClass('preload-overlay', target)) {
+            return;
+        }
+        if (!hasClass('not-loaded', currentTarget) && currentTarget.dataset.loaded) {
+            // const {vw, vh} = offsetsToViewMeasurements(currentTarget, window);
+            // currentTarget.style.height = `${vh}vh`;
+            // currentTarget.style.width = `${vw}vw`;
+            addClass('loaded', currentTarget);
+            addClass('loaded', element);
+        }
     }
 }

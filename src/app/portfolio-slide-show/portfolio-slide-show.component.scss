@@ -71,6 +71,10 @@
         height: $carousel-max-height;
     }
 
+    .carousel-slide {
+        height: auto;
+    }
+
     app-portfolio-slide-show-arrow {
         z-index: $carousel-z-index + 3;
     }
@@ -81,10 +85,11 @@
 
 @media (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
     :host .carousel-items .carousel-item {
-        flex-basis: 90vw;
-        .landscape {
+        &.portrait {
+            flex-basis: 90vw;
+        }
+        &.landscape {
             flex-basis: 100vw;
-            height: auto;
         }
     }
 }
@@ -92,7 +97,7 @@
 @media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
     :host .carousel-items .carousel-item {
         &.portrait {
-            min-height: 34%;
+            //min-height: 34%;
             flex-basis: 55vw;
         }
 
@@ -111,7 +116,7 @@
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     :host .carousel-items .carousel-item {
-        flex-basis: 72vw;
+        flex-basis: 89vw;
     }
 }
 

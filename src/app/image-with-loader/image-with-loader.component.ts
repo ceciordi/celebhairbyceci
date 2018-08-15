@@ -13,6 +13,17 @@ import {assign, isNumber, isset, compose, log} from 'fjl';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import {addClass, hasClass, removeClass} from '../utils/classList-helpers';
 
+export enum LOAD_STATE {
+    LOAD_START = 0,
+    LOAD_PROGRESS,
+    LOAD_LOAD,
+    LOAD_ABORT,
+    LOAD_ERROR,
+    LOAD_END
+}
+
+const {LOAD_START, LOAD_LOAD, LOAD_ABORT, LOAD_ERROR, LOAD_END} = LOAD_STATE;
+
 @Component({
     selector: 'app-image-with-loader',
     templateUrl: './image-with-loader.component.html',
@@ -89,7 +100,7 @@ export class ImageWithLoaderComponent implements OnInit, OnChanges, AfterViewChe
 
     onLoadStart () {
         this.progressText = 'Awaiting load queue...';
-        this.loadstate.emit(0);
+        this.loadstate.emit(LOAD_START);
     }
 
     onProgress (e) {
@@ -104,19 +115,21 @@ export class ImageWithLoaderComponent implements OnInit, OnChanges, AfterViewChe
         this.src = this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(this.xhr.response));
         this.loading = false;
         this.loaded = true;
-        this.loadstate.emit(1);
-        this.element.nativeElement.setAttribute('data-loaded', 'data-loaded');
+        this.loadstate.emit(LOAD_LOAD);
     }
 
     // onLoadEnd () {
     //     this.progressText = 'Load ended.';
+    //     this.loadstate.emit(LOAD_END);
     // }
 
     onAbort () {
         this.progressText = 'Image loading aborted.';
+        this.loadstate.emit(LOAD_ABORT);
     }
 
     onError () {
         this.progressText = 'Unable to load image.';
+        this.loadstate.emit(LOAD_ERROR);
     }
 }

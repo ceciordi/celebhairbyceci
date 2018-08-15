@@ -4,9 +4,10 @@
     position: relative;
     display: block;
 
-    width: auto;
+    width: 100%; // needed due to 'display: flexbox' on parent (width needs to be other than auto)
     height: auto;
     max-height: 90vh;
+    max-width: 100vw;
     min-height: 21vh;
     min-width: 34vw;
     margin: 0;
