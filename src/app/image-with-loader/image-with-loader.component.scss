@@ -71,6 +71,10 @@
         }
     }
 
+    &:host-context(app-portfolio-slide) {
+
+    }
+
     .preload-overlay {
         position: absolute;
         height: 100%;

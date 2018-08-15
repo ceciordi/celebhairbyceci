@@ -1,14 +1,11 @@
 @import "../../scss/component-includes";
-$carousel-z-index: 99;
-$carousel-max-height: 100vh;
 
 :host {
     position: fixed;
     top: 0;
     left: 0;
 
-    > *,
-    .carousel-item {
+    > * {
         position: relative;
     }
 
@@ -21,17 +18,8 @@ $carousel-max-height: 100vh;
     &,
     .carousel-scrollable-container,
     .carousel-items,
-    .carousel-item,
-    .carousel-item img {
-        @include transition(
-                fit-with-browser-prefixes((
-                    transform $ani-speed-3 ease-in-out,
-                    margin $ani-speed-3 ease-in-out,
-                    box-shadow $ani-speed-3 ease-in-out,
-                    opacity $ani-speed-3 ease-in-out,
-                ), (transform)
-                )
-        );
+    .carousel-item {
+        @extend %slide-transition-def;
     }
 
     &.active.from-closed {
@@ -73,38 +61,6 @@ $carousel-max-height: 100vh;
         height: $carousel-max-height;
     }
 
-    .carousel-item {
-        box-shadow: 0 0 55px rgba(0, 0, 0, 0.34);
-        background: #FFF;
-        width: auto;
-        height: auto;
-        max-height: 90vh;
-        min-width: 34vw;
-        overflow: hidden;
-        margin: 0;
-        z-index: $carousel-z-index + 1;
-        @include transform(scale(0.89));
-        @include with-browser-prefixes(transform-origin, (center center));
-
-        img {
-            display: block;
-            @include transition(fit-with-browser-prefixes((opacity $ani-speed-3 linear,), (opacity)));
-            @include opacity(0.55);
-        }
-        &.active img {
-            @include opacity(1);
-        }
-
-        &.active {
-            @include transform(scale(1.1));
-            z-index: $carousel-z-index + 2;
-            margin: 0 1.0rem;
-            box-shadow: 0 0 144px rgba(0, 0, 0, 0.13);
-            @include opacity(1);
-        }
-
-    }
-
     app-portfolio-slide-show-arrow {
         z-index: $carousel-z-index + 3;
     }
@@ -121,7 +77,6 @@ $carousel-max-height: 100vh;
 
 @media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
     :host .carousel-items .carousel-item {
-
         &.portrait {
             min-height: 90vh;
             min-width: 42vw;

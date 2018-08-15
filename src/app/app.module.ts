@@ -8,6 +8,7 @@ import { ImageWithLoaderComponent } from './image-with-loader/image-with-loader.
 import {PortfolioSlideShowArrowComponent} from './portfolio-slide-show-arrow/portfolio-slide-show-arrow.component';
 import { BgOverlayComponent } from './bg-overlay/bg-overlay.component';
 import { PortfolioThumbComponent } from './portfolio-thumb/portfolio-thumb.component';
+import { PortfolioSlideComponent } from './portfolio-slide/portfolio-slide.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PortfolioThumbComponent } from './portfolio-thumb/portfolio-thumb.compo
     ImageWithLoaderComponent,
     PortfolioSlideShowArrowComponent,
     BgOverlayComponent,
-    PortfolioThumbComponent
+    PortfolioThumbComponent,
+    PortfolioSlideComponent
   ],
   imports: [
     BrowserModule

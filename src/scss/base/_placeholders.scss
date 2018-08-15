@@ -1,3 +1,9 @@
+@import "../mixins/mixins";
+@import "../functions/variables";
+@import "../functions/fit-with-browser-prefixes";
+@import "variables";
+@import "color-theme";
+
 %pos-rel {
     position: relative;
 }
@@ -12,4 +18,15 @@
 
 %border-box {
   box-sizing: border-box;
+}
+
+%slide-transition-def {
+    @include transition(
+            fit-with-browser-prefixes((
+                transform $ani-speed-3 ease-in-out,
+                margin $ani-speed-3 ease-in-out,
+                box-shadow $ani-speed-3 ease-in-out,
+                opacity $ani-speed-3 ease-in-out,
+            ), (transform))
+    );
 }

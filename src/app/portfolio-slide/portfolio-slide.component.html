@@ -1,0 +1,8 @@
+<app-image-with-loader
+    [dataSrc]="dataSrc"
+    [ngClass]="className"
+    [triggerLoadRequested]="triggerLoadRequested"
+    [index]="index"
+    (loadstate)="onImageLoadStateChange($event)"
+    (click)="onImageWithLoaderClick($event)"
+></app-image-with-loader>
