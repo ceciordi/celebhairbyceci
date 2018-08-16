@@ -70,6 +70,16 @@
             );
         }
 
+        &.portrait img {
+            width: 108%;
+            height: auto;
+        }
+
+        &.landscape img {
+            width: auto;
+            height: 108%;
+        }
+
         &:hover,
         &:active {
             cursor: pointer;

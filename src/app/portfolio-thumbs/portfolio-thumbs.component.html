@@ -2,7 +2,8 @@
     #imageWithLoader
     *ngFor="let item of items; index as ind"
     dataSrc="{{item.filePath}}"
-    [className]="(activeImageIndex === ind ? activeClassName : '')"
+    [className]="(item.width > item.height ? 'landscape' : 'portrait') + ' ' +
+                 (activeImageIndex === ind ? activeClassName : '')"
     (click)="onThumbClick($event, item)"
     [triggerLoadRequested]="item.triggerLoadRequested"
     [index]="item.index"

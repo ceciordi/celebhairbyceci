@@ -15,9 +15,7 @@ import {
 } from '@angular/core';
 import {findIndex, isset, log} from 'fjl';
 import {imageWithLoaderLazyLoadWatcher, loadTriggerCheck} from '../utils/imageWithLoaderParent-helpers';
-import {fromEvent} from 'rxjs';
 import {getDocumentTopScrollable} from '../utils/dom-helpers';
-import {debounceTime} from 'rxjs/operators';
 
 @Component({
     selector: 'app-portfolio-thumbs',
