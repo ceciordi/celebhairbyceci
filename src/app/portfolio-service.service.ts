@@ -5,7 +5,10 @@ const
 
     separateImagesByWidths = (imagesList, widths) =>
         widths.reduce((agg, w) => {
-            agg[w] = imagesList.filter(item => Math.round(item.width) === w);
+            agg[w] = imagesList.filter(item =>
+                [w, w - 1, w + 1] // Some images when processed are rounded down hence why need to check -1 and +1
+                    .some(x => Math.round(item.width) === x)
+            );
             return agg;
         }, {}),
 
