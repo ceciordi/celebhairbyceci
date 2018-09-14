@@ -20,7 +20,7 @@ export class PortfolioComponent implements OnInit {
     }); // slides pagination math and triggering handed off to this component
     activeClassName = 'active';
     hiddenByClassName = 'hidden-by-z-index';
-    activeImageItemIndex = 0;
+    activeImageItemIndex = -1;
     thumbImages: Array<ImageWithLoaderModel> = [];
     slideShowImages: Array<ImageWithLoaderModel> = [];
 
