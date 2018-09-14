@@ -13,6 +13,8 @@
     }
     h1 {
       line-height: 0;
+    border-bottom: 1px solid #CCC;
+        padding-bottom: 13px;
     }
     h1 a {
       font: bold 34px "brandon-grotesque", "Lato", $global-fonts;
@@ -71,11 +73,6 @@
 
 @media (min-device-width: 768px) and (max-device-width: 3840px) {
   > header .logo {
-    margin-bottom: 13px;
-
-    h1 {
-      margin-bottom: 8px;
-    }
     h1 a {
       line-height: 34px;
     }
