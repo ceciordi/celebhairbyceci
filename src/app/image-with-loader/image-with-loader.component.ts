@@ -43,6 +43,9 @@ export class ImageWithLoaderComponent implements OnInit, OnChanges, AfterViewChe
     loaded = false;
     progress = 0;
     progressText = '';
+    loadTries = 0;
+    loadTriesLimit = 3;
+    loadTriesTimeout = 3000;
     @Output() loadstate = new EventEmitter<Num>();
 
     constructor(private sanitizer: DomSanitizer, private selfRef: ElementRef) {
@@ -90,6 +93,7 @@ export class ImageWithLoaderComponent implements OnInit, OnChanges, AfterViewChe
     }
 
     loadSrc (src) {
+        this.loadTries += 1;
         this.xhr.abort();
         this.xhr.open('GET', src, true);
         this.loaded = false;
@@ -115,6 +119,7 @@ export class ImageWithLoaderComponent implements OnInit, OnChanges, AfterViewChe
         this.src = this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(this.xhr.response));
         this.loading = false;
         this.loaded = true;
+        this.loadTries = 0;
         this.loadstate.emit(LOAD_LOAD);
     }
 
@@ -124,11 +129,19 @@ export class ImageWithLoaderComponent implements OnInit, OnChanges, AfterViewChe
     // }
 
     onAbort () {
+        const {dataSrc, loadTries, loadTriesLimit, loadTriesTimeout} = this;
+        if (loadTries < loadTriesLimit) {
+            setTimeout(() => this.loadSrc(dataSrc), loadTriesTimeout);
+        }
         this.progressText = 'Image loading aborted.';
         this.loadstate.emit(LOAD_ABORT);
     }
 
     onError () {
+        const {dataSrc, loadTries, loadTriesLimit, loadTriesTimeout} = this;
+        if (loadTries < loadTriesLimit) {
+            setTimeout(() => this.loadSrc(dataSrc), loadTriesTimeout);
+        }
         this.progressText = 'Unable to load image.';
         this.loadstate.emit(LOAD_ERROR);
     }
