@@ -9,6 +9,7 @@ import {PortfolioSlideShowArrowComponent} from './portfolio-slide-show-arrow/por
 import { BgOverlayComponent } from './bg-overlay/bg-overlay.component';
 import { PortfolioThumbComponent } from './portfolio-thumb/portfolio-thumb.component';
 import { PortfolioSlideComponent } from './portfolio-slide/portfolio-slide.component';
+import { BackToTopBtnComponent } from './back-to-top-btn/back-to-top-btn.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PortfolioSlideComponent } from './portfolio-slide/portfolio-slide.compo
     PortfolioSlideShowArrowComponent,
     BgOverlayComponent,
     PortfolioThumbComponent,
-    PortfolioSlideComponent
+    PortfolioSlideComponent,
+    BackToTopBtnComponent
   ],
   imports: [
     BrowserModule
