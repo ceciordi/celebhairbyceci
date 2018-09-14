@@ -94,6 +94,22 @@ export class PortfolioSlideShowComponent implements OnInit, OnChanges, AfterView
     }
 
     ngAfterViewInit () {
+        window.addEventListener('keydown', e => {
+            switch (e.key) {
+                case 'ArrowLeft':
+                case 'ArrowUp':
+                    e.preventDefault();
+                    this.prevSlide();
+                    break;
+                case 'ArrowRight':
+                case 'ArrowDown':
+                    e.preventDefault();
+                    this.nextSlide();
+                    break;
+                default:
+                    break;
+            }
+        });
     }
 
     imageLazyLoadCheck () {
