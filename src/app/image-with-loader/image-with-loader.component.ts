@@ -44,7 +44,7 @@ export class ImageWithLoaderComponent implements OnInit, OnChanges, AfterViewChe
     progress = 0;
     progressText = '';
     loadTries = 0;
-    loadTriesLimit = 3;
+    loadTriesLimit = 55;
     loadTriesTimeout = 3000;
     @Output() loadstate = new EventEmitter<Num>();
 
@@ -55,7 +55,7 @@ export class ImageWithLoaderComponent implements OnInit, OnChanges, AfterViewChe
     ngOnInit() {
         const {dataSrc, element} = this;
         this.initXHR();
-        if (this.triggerLoadRequested) {
+        if (this.triggerLoadRequested && dataSrc) {
             this.loadSrc(dataSrc);
         }
         addClass('not-loaded', element);
@@ -123,26 +123,30 @@ export class ImageWithLoaderComponent implements OnInit, OnChanges, AfterViewChe
         this.loadstate.emit(LOAD_LOAD);
     }
 
-    // onLoadEnd () {
-    //     this.progressText = 'Load ended.';
-    //     this.loadstate.emit(LOAD_END);
-    // }
+    onLoadEnd () {
+        this.progressText = 'Load ended.';
+        this.loadstate.emit(LOAD_END);
+    }
 
     onAbort () {
         const {dataSrc, loadTries, loadTriesLimit, loadTriesTimeout} = this;
         if (loadTries < loadTriesLimit) {
+            this.progressText = 'Retrying image load...';
             setTimeout(() => this.loadSrc(dataSrc), loadTriesTimeout);
+        } else {
+            this.progressText = 'Image loading aborted.';
         }
-        this.progressText = 'Image loading aborted.';
         this.loadstate.emit(LOAD_ABORT);
     }
 
     onError () {
         const {dataSrc, loadTries, loadTriesLimit, loadTriesTimeout} = this;
         if (loadTries < loadTriesLimit) {
+            this.progressText = 'Retrying image load...';
             setTimeout(() => this.loadSrc(dataSrc), loadTriesTimeout);
+        } else {
+            this.progressText = 'Unable to load image.';
         }
-        this.progressText = 'Unable to load image.';
         this.loadstate.emit(LOAD_ERROR);
     }
 }
